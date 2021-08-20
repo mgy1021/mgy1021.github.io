@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Mogy的博客
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            Webpack
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h1 id="Webpack的简介"><a href="#Webpack的简介" class="headerlink" title="Webpack的简介"></a>Webpack的简介</h1><h2 id="1-什么是Webpack？"><a href="#1-什么是Webpack？" class="headerlink" title="1. 什么是Webpack？"></a>1. 什么是Webpack？</h2><p>Webpac是一种前端资源构建工具，一个静态模块打包器(module bundler)。</p>
+<p>在Webpack看来，前端的所有资源文件(js/json/css/img/less/…)都会作为模块处理。它将根据模块的依赖关系进行静态分析，打包生成对应的静态资源(bundle)。</p>
+<h2 id="2-Webpack的五个核心概念"><a href="#2-Webpack的五个核心概念" class="headerlink" title="2. Webpack的五个核心概念"></a>2. Webpack的五个核心概念</h2><h3 id="2-1-Entry"><a href="#2-1-Entry" class="headerlink" title="2.1 Entry"></a>2.1 Entry</h3><p>​            入口(entry)指示Webpack以哪个文件为入口起点开始打包，分析构建内部依赖图。</p>
+<h3 id="2-2-Output"><a href="#2-2-Output" class="headerlink" title="2.2 Output"></a>2.2 Output</h3><p>​            输出(output)指示Webpack打包后的资源bundle输出到哪里去，以及如何命名。</p>
+<h3 id="2-3-loader"><a href="#2-3-loader" class="headerlink" title="2.3 loader"></a>2.3 loader</h3><p>​            Loader让webpack能够处理一些非JavaScript文件(webpack自身只认识JavaScript)</p>
+<h3 id="2-4-Plugins"><a href="#2-4-Plugins" class="headerlink" title="2.4 Plugins"></a>2.4 Plugins</h3><p>​            插件(Plugins)可以用于执行范围更广的任务。插件的范围包括，从打包优化和压缩一直到重新定义环境中的变量等。</p>
+<h3 id="2-5-Mode"><a href="#2-5-Mode" class="headerlink" title="2.5 Mode"></a>2.5 Mode</h3><p>​            模式(Mode)指示Webpack使用相应模式的配置。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">描述</th>
+<th align="left">特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">development</td>
+<td align="left">会将process.env.NODE_ENV的值设为development。启用NamedChunksPlugin和NamedModulesPlugin.</td>
+<td align="left">能够让本地调试运行环境</td>
+</tr>
+<tr>
+<td align="left">production</td>
+<td align="left">会将process.env.NODE_ENV的值设为production。启用FlagDependencyUsagePlugin等</td>
+<td align="left">能够让代码优化上线运行的环境</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="3-Webpack初体验"><a href="#3-Webpack初体验" class="headerlink" title="3. Webpack初体验"></a>3. Webpack初体验</h2><h3 id="3-1-运行指令"><a href="#3-1-运行指令" class="headerlink" title="3.1 运行指令"></a>3.1 运行指令</h3><p>​            <strong>开发环境</strong>：webpack ./src/index.js -o ./build/build.js –mode=development</p>
+<p>​    webpack会以 ./src/index.js为入口文件开始打包，打包后输出到./build/built.js文件</p>
+<p>​    整体打包环境是<strong>开发环境</strong></p>
+<p>​        <strong>生产环境</strong>：webpack ./src/index.js -o ./build/build.js –mode=production</p>
+<p>​    webpack会以 ./src/index.js为入口文件开始打包，打包后输出到./build/built.js文件</p>
+<p>​    整体打包环境是<strong>生产环境</strong></p>
+<h3 id="3-2-结论"><a href="#3-2-结论" class="headerlink" title="3.2 结论"></a>3.2 结论</h3><ol>
+<li>webpack能处理js/json资源,不能处理css/img等其他资源。</li>
+<li>生产环境和开发环境将ES6模块化编译成浏览器能识别的模块化。</li>
+<li>生产环境比开发环境多一个压缩代码。</li>
+</ol>
+<h2 id="4-打包样式资源"><a href="#4-打包样式资源" class="headerlink" title="4. 打包样式资源"></a>4. 打包样式资源</h2><p>webpack.config.js是webpack的配置文件</p>
+<p>作用：指示webpack干哪些活（当你运行webpack指令时，会加载里面的配置）</p>
+<p>注意：所有构建工具都是基于nodejs平台运行的~模块化默认采用commonJS</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Description:</span></span><br><span class="line"><span class="comment"> * @Author: Mogy</span></span><br><span class="line"><span class="comment"> * @Date: 2021-08-19 14:51:29</span></span><br><span class="line"><span class="comment"> * @LastEditors: Mogy</span></span><br><span class="line"><span class="comment"> * @LastEditTime: 2021-08-19 15:34:37</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//resolve用来拼接绝对路径的方法</span></span><br><span class="line"><span class="keyword">const</span> &#123; resolve &#125; = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// webpack配置</span></span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">    <span class="comment">// 输出</span></span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="comment">// 输出文件名</span></span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;built.js&#x27;</span>,</span><br><span class="line">        <span class="comment">// 输出的路径</span></span><br><span class="line">        <span class="comment">//__dirname nodejs的变量，代表当前文件所在目录的绝对路径</span></span><br><span class="line">        <span class="attr">path</span>: resolve(__dirname, <span class="string">&#x27;build&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//loader的配置</span></span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="attr">rules</span>: [</span><br><span class="line">            <span class="comment">//详细的loader配置</span></span><br><span class="line">            <span class="comment">// 不同文件必须配置不同的loader处理</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//匹配哪些文件</span></span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                <span class="comment">// 使用哪些loader进行处理</span></span><br><span class="line">                use: [</span><br><span class="line">                    <span class="comment">//use数组中loader执行顺序：从右到左，从上到下。依次执行</span></span><br><span class="line">                    <span class="comment">//创建style标签，将js中的css样式资源插入进去，添加到head中生效</span></span><br><span class="line">                    <span class="string">&#x27;style-loader&#x27;</span>,</span><br><span class="line">                    <span class="comment">//将css文件编成commonJS模块加载到js中，里面的内容是样式字符串</span></span><br><span class="line">                    <span class="string">&#x27;css-loader&#x27;</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.less$/</span>,</span><br><span class="line">                use: [</span><br><span class="line">                    <span class="string">&quot;style-loader&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;css-loader&quot;</span>,</span><br><span class="line">                    <span class="comment">// 将less文件编译成css文件</span></span><br><span class="line">                    <span class="string">&quot;less-loader&quot;</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// plugins的配置</span></span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="comment">//详细plugins的配置</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 模式</span></span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="comment">// mode: &#x27;production&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-Webpack打包html资源"><a href="#5-Webpack打包html资源" class="headerlink" title="5. Webpack打包html资源"></a>5. Webpack打包html资源</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Description:</span></span><br><span class="line"><span class="comment"> * @Author: Mogy</span></span><br><span class="line"><span class="comment"> * @Date: 2021-08-19 15:45:13</span></span><br><span class="line"><span class="comment"> * @LastEditors: Mogy</span></span><br><span class="line"><span class="comment"> * @LastEditTime: 2021-08-19 16:00:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    loader:</span></span><br><span class="line"><span class="comment">        1. 下载</span></span><br><span class="line"><span class="comment">        2. 使用（配置loader）</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    plugins：</span></span><br><span class="line"><span class="comment">        1. 下载</span></span><br><span class="line"><span class="comment">        2. 引入</span></span><br><span class="line"><span class="comment">        3. 使用</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; resolve &#125; = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&quot;html-webpack-plugin&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&#x27;built.js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>: resolve(__dirname, <span class="string">&quot;build&quot;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="attr">rules</span>: [</span><br><span class="line">            <span class="comment">// loader的配置</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="comment">// plugins的配置</span></span><br><span class="line">        <span class="comment">// html-webpack-plugin</span></span><br><span class="line">        <span class="comment">// 功能：默认会创建一个空的HTML文件，自动引入打包输出的所有资源(JS/CSS)</span></span><br><span class="line">        <span class="comment">// 需求：需要有结构的HTML文件</span></span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            <span class="comment">// 复制一个HTML文件，并自动引入打包输出的所有资源(JS/CSS)</span></span><br><span class="line">            <span class="attr">template</span>: <span class="string">&#x27;./src/index.html&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&quot;development&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-Webpack打包图片资源"><a href="#6-Webpack打包图片资源" class="headerlink" title="6. Webpack打包图片资源"></a>6. Webpack打包图片资源</h2>
+    </div>
+
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="CmCti21ooOOIzFOhEyFkFvR0-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="FqiyUqbg7McKN2eG0MCewupf">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>
