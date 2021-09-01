@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -22,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>编程式导航 - Mogy的博客</title>
+  <title>分类：Ajax - Mogy的博客</title>
   
 
   
@@ -369,7 +371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper page search' style="display: none;">
+        <div id="full" class='cover-wrapper  search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -452,187 +454,78 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-page" id="page" itemscope itemprop="blogPost">
   
-
-
-  
-  <div class="article-meta" id="top">
     
-    
-    
-      <h1 class="title">
-        编程式导航
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>请设置文章作者</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021年8月31日</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
       
-      <div id="lc-pv" data-title="编程式导航" data-path="/%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
+  <section class="post-list">
+    
+      
+        
           
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2021/08/31/Ajax/">
+        Ajax
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        AJAX的特点1.AJAX的优点  （1）可以无需刷新页面与服务器进行通信  （2）允许你根据用户事件来更新部分网页内容
+2.AJAX的缺点  （1）没有浏览历史，不能回退  （2）存在跨域问题（同源）  （3）SEO不友好
+AJAX的使用1.AJAX的基本操作  12345678910111213141516&lt;!-- 1.创建对象 --&gt;const xhr = new XMLH...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-08-31</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/">Ajax</a>
         
       </div>
-    
-  </div>
-
-
-  
-  
-  <h3 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h3><p>  1.跳转路由并传递数据</p>
-<ol>
-<li><p>使用query带参，参数携带在url的查询字符串上，刷新不会消失</p>
-<p>使用path跳转，带在params上的参数无效</p>
-</li>
-</ol>
-<p>​        2. 使用params带参，参数一次性的带在this.$route.params中，刷新会消失</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$router.push(&#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&#x27;&#x27;</span></span><br><span class="line">      <span class="attr">name</span>:<span class="string">&#x27;&#x27;</span></span><br><span class="line">      <span class="attr">query</span>:&#123;</span><br><span class="line">        id=<span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="attr">params</span>:&#123;</span><br><span class="line">      	<span class="attr">name</span>:<span class="string">&#x27;zhangsna&#x27;</span>          </span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>  2.接收数据</p>
-<p><code>this.$route.query.id</code></p>
-
-  
-  
-  
-    
-
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
       
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-31T19:34:40+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年8月31日</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://mgy1021.github.io/%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA/index.html&title=编程式导航 - Mogy的博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://mgy1021.github.io/%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA/index.html&title=编程式导航 - Mogy的博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://mgy1021.github.io/%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA/index.html&title=编程式导航 - Mogy的博客&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
-
-
-
-        
+        <div>
+          <a class='readmore' href='/2021/08/31/Ajax/'>
+            阅读全文
+          </a>
+        </div>
       
     </div>
-  </div>
-
-
-  
   
 
-  
-</article>
-
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fas fa-comments'></i> 评论</p>
-    
-    <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-  </article>
+          </div>
+        
+      
+    
+  </section>
+  
+    
+  
 
 
-
-
-
-
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -640,28 +533,151 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Mogy的博客</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/volantis-x/"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="/"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
 
+  
 
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
     
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
     
   </header>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-text">编程式导航</span></a></li></ol>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/"
+            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088"
+            ><div class='name'>前端学习栈</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/"
+            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Ajax"
+            ><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/"
+            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088ES6"
+            ><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/"
+            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Webpack"
+            ><div class='name'>Webpack</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/"
+            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088git"
+            ><div class='name'>git</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%97%A5%E5%BF%97/" href="/categories/%E6%97%A5%E5%BF%97/"
+            id="categoriesE697A5E5BF97"
+            ><div class='name'>日志</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
     </div>
   </section>
 
 
   
 
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/ES6/" style="font-size: 14px; color: #999">ES6</a>
+    </div>
+  </section>
+
+
+  
+
+  
+
 
 </aside>
-
 
 
 		  
