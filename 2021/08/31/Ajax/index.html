@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档 - Mogy的博客</title>
+  <title>Ajax - Mogy的博客</title>
   
 
   
@@ -120,7 +118,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -371,7 +369,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper pages search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -455,111 +453,144 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
-	
-	  <article id="arc" class="post article white-box reveal shadow">
-			
-			
-				
-				
-					
-						
-						<h2>2021</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/08/31/Webpack-1/">
-									<time>08-31</time>
-									
-										Webpack
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/08/31/git/">
-									<time>08-31</time>
-									
-										git
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/08/31/ES6/">
-									<time>08-31</time>
-									
-										ES6
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/08/31/Ajax/">
-									<time>08-31</time>
-									
-										Ajax
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/08/20/Webpack/">
-									<time>08-20</time>
-									
-										Webpack
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/08/20/hello-world/">
-									<time>08-20</time>
-									
-										Hello World
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-	  </article>
-	
+  <article class="article post white-box reveal md shadow article-type-pages" id="pages" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Ajax
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年8月31日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Ajax" data-path="/2021/08/31/Ajax/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h3 id="AJAX的特点"><a href="#AJAX的特点" class="headerlink" title="AJAX的特点"></a>AJAX的特点</h3><h4 id="1-AJAX的优点"><a href="#1-AJAX的优点" class="headerlink" title="1.AJAX的优点"></a>1.AJAX的优点</h4><p>  （1）可以无需刷新页面与服务器进行通信<br>  （2）允许你根据用户事件来更新部分网页内容</p>
+<h4 id="2-AJAX的缺点"><a href="#2-AJAX的缺点" class="headerlink" title="2.AJAX的缺点"></a>2.AJAX的缺点</h4><p>  （1）没有浏览历史，不能回退<br>  （2）存在跨域问题（同源）<br>  （3）SEO不友好</p>
+<h3 id="AJAX的使用"><a href="#AJAX的使用" class="headerlink" title="AJAX的使用"></a>AJAX的使用</h3><h4 id="1-AJAX的基本操作"><a href="#1-AJAX的基本操作" class="headerlink" title="1.AJAX的基本操作"></a>1.AJAX的基本操作</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1.创建对象 --&gt;</span><br><span class="line">const xhr = new XMLHttpRequest()</span><br><span class="line">&lt;!-- 2.初始化 设置请求方式和URL --&gt;</span><br><span class="line">xhr.open(&#x27;GET&#x27;，URL)</span><br><span class="line">&lt;!-- 3.发送 --&gt;</span><br><span class="line">xhr.send()</span><br><span class="line">&lt;!-- 4.绑定事件 --&gt;</span><br><span class="line">xhr.onreadyStateChange = function () &#123;</span><br><span class="line">  &lt;!-- 判断（服务器是否返回全部结果） --&gt;</span><br><span class="line">  if(xhr.readyState === 4)&#123;</span><br><span class="line">    &lt;!-- 判断（响应是否成功） --&gt;</span><br><span class="line">    if(xhr.status &gt;= 200&amp;&amp;xhr.status &lt; 300)&#123;</span><br><span class="line">      console.log(xhr.response)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-传参"><a href="#2-传参" class="headerlink" title="2.传参"></a>2.传参</h4><p>  （1）GET请求<br>      在URL后面拼接，例如:<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/server?username=Mogy&amp;age=12">http://127.0.0.1:8000/server?username=Mogy&amp;age=12</a><br>  （2）POST请求<br>      在send方法中传参，例如：xhr.send(‘username=Mogy&amp;age=12’)</p>
+<h4 id="3-超时请求和网络异常处理"><a href="#3-超时请求和网络异常处理" class="headerlink" title="3.超时请求和网络异常处理"></a>3.超时请求和网络异常处理</h4><p>  （1）超时请求<br>      <code>xhr.timeout = 2000</code><br>  （2）网络异常处理<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhr.onerror = function () &#123;</span><br><span class="line">          alert(&quot;你的网络似乎出了问题!!!&quot;)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-手动取消请求"><a href="#4-手动取消请求" class="headerlink" title="4.手动取消请求"></a>4.手动取消请求</h4><p>  （1）xhr.abort()</p>
+<h3 id="Jquery发送ajax"><a href="#Jquery发送ajax" class="headerlink" title="Jquery发送ajax"></a>Jquery发送ajax</h3><h4 id="1-发GET"><a href="#1-发GET" class="headerlink" title="1.发GET"></a>1.发GET</h4><p>  <code>$.get(url,data,function()&#123;&#125;,&#39;json&#39;)</code></p>
+<h4 id="2-发POST"><a href="#2-发POST" class="headerlink" title="2.发POST"></a>2.发POST</h4><p>  <code>$.post(url,data,function()&#123;&#125;)</code></p>
+<h4 id="3-通用方法"><a href="#3-通用方法" class="headerlink" title="3.通用方法"></a>3.通用方法</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  &lt;!-- 请求路径 --&gt;</span><br><span class="line">  url:&#x27;&#x27;,</span><br><span class="line">  &lt;!-- 请求方式 --&gt;</span><br><span class="line">  type:&#x27;&#x27;,</span><br><span class="line">  &lt;!-- 参数 --&gt;</span><br><span class="line">  data:&#123;&#125;,</span><br><span class="line">  &lt;!-- 设置响应体的数据类型 --&gt;</span><br><span class="line">  datatype:&#x27;json&#x27;</span><br><span class="line">  &lt;!-- 成功回调 --&gt;</span><br><span class="line">  success()&#123;&#125;,</span><br><span class="line">  &lt;!-- 错误回调 --&gt;</span><br><span class="line">  error()&#123;&#125;,</span><br><span class="line">  &lt;!-- 设置请求超时 --&gt;</span><br><span class="line">  timeout:2000,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="axios发ajax"><a href="#axios发ajax" class="headerlink" title="axios发ajax"></a>axios发ajax</h3><h4 id="1-发GET请求"><a href="#1-发GET请求" class="headerlink" title="1.发GET请求"></a>1.发GET请求</h4><p>  <code>axios.get(url,config).then().catch()</code></p>
+<h4 id="2-发POST请求"><a href="#2-发POST请求" class="headerlink" title="2.发POST请求"></a>2.发POST请求</h4><p>  <code>axios.post(url,data,config),then().catch()</code></p>
+<h4 id="3-通用方法-1"><a href="#3-通用方法-1" class="headerlink" title="3.通用方法"></a>3.通用方法</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">  &lt;!-- 请求路径 --&gt;</span><br><span class="line">  url:&#x27;&#x27;,</span><br><span class="line">  &lt;!-- 请求方式 --&gt;</span><br><span class="line">  method:&#x27;&#x27;,</span><br><span class="line">  &lt;!-- 设置请求头 --&gt;</span><br><span class="line">  headers:&#123;&#125;,</span><br><span class="line">  &lt;!-- 请求体 --&gt;</span><br><span class="line">  data:&#123;&#125;</span><br><span class="line">  &lt;!-- url传参 --&gt;</span><br><span class="line">  params:&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="ajax同源策略"><a href="#ajax同源策略" class="headerlink" title="ajax同源策略"></a>ajax同源策略</h3><p>  1.同源策略是浏览器的一种安全策略<br>  2.同源：协议、域名、端口号 必须完全相同<br>  3.违背同源策略就是跨域</p>
+<p>解决跨域：</p>
+<ol>
+<li>Jsonp</li>
+<li>Cros</li>
+</ol>
+<p>浏览器解决跨域：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37338983/article/details/78606064">https://blog.csdn.net/qq_37338983/article/details/78606064</a></p>
+<p>火狐浏览器下载<strong>CORS-EVERYWHERE</strong>插件即可解决跨域问题</p>
+<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><h4 id="1-HTTP简介"><a href="#1-HTTP简介" class="headerlink" title="1.HTTP简介"></a>1.HTTP简介</h4><p>  超文本传输协议，协议详细规定了浏览器和万维网服务器之间相互通信的规则</p>
+<h4 id="2-内容"><a href="#2-内容" class="headerlink" title="2.内容"></a>2.内容</h4><p>  1.请求报文<br>      重点是格式和参数：<br>      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">行    POST /s?ie=utf-8    HTTP/1.1</span><br><span class="line">头        </span><br><span class="line">空行</span><br><span class="line">体</span><br></pre></td></tr></table></figure><br>  2.响应报文<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">行  HTTP/1.1  200 OK</span><br><span class="line">头</span><br><span class="line">空行</span><br><span class="line">体</span><br></pre></td></tr></table></figure></p>
+
+  
+  
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2021/08/31/ES6/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>ES6</p>
+          <p class='content'>1. 为什么要学习ES6
+ES的本版变动内容最多，具有里程碑意义
+ES6加入许多新的语法特性，编程实现更简单、高效
+ES6是前端发展趋势，就业必备技能（在三大框架中大量使用了ES6的语法）
+
+2...</p>
+        </a>
+      
+      
+        <a class='next' href='/2021/08/20/Webpack/'>
+          <p class='title'>Webpack<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Webpack的简介1. 什么是Webpack？Webpac是一种前端资源构建工具，一个静态模块打包器(module bundler)。
+在Webpack看来，前端的所有资源文件(js/json...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -567,87 +598,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Mogy的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
+  <header>
     
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
 
-  
 
-  
-    
-    
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">AJAX的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-AJAX%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">1.AJAX的优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-AJAX%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">2.AJAX的缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">AJAX的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-AJAX%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-text">1.AJAX的基本操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BC%A0%E5%8F%82"><span class="toc-text">2.传参</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%B6%85%E6%97%B6%E8%AF%B7%E6%B1%82%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-text">3.超时请求和网络异常处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%89%8B%E5%8A%A8%E5%8F%96%E6%B6%88%E8%AF%B7%E6%B1%82"><span class="toc-text">4.手动取消请求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jquery%E5%8F%91%E9%80%81ajax"><span class="toc-text">Jquery发送ajax</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8F%91GET"><span class="toc-text">1.发GET</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8F%91POST"><span class="toc-text">2.发POST</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">3.通用方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#axios%E5%8F%91ajax"><span class="toc-text">axios发ajax</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8F%91GET%E8%AF%B7%E6%B1%82"><span class="toc-text">1.发GET请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8F%91POST%E8%AF%B7%E6%B1%82"><span class="toc-text">2.发POST请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="toc-text">3.通用方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="toc-text">ajax同源策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="toc-text">HTTP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-HTTP%E7%AE%80%E4%BB%8B"><span class="toc-text">1.HTTP简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%86%85%E5%AE%B9"><span class="toc-text">2.内容</span></a></li></ol></li></ol>
+    </div>
+  </section>
 
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -663,14 +635,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>

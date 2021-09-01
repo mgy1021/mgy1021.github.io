@@ -2238,6 +2238,82 @@ div.fancybox .image-caption {
 div.fancybox .image-caption:empty {
   display: none;
 }
+@media screen and (max-width: 500px) {
+  .l_header .list-v .aplayer,
+  .l_header .list-v .aplayer-pic {
+    border-radius: 4px;
+    width: 64px;
+    height: 64px;
+  }
+}
+.aplayer-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100px;
+}
+.aplayer-container meting-js {
+  max-width: 100%;
+}
+.aplayer {
+  max-width: 500px;
+  border-radius: 4px;
+  color: var(--color-text);
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+}
+.aplayer .aplayer-list {
+  text-align: left;
+}
+@media screen and (max-width: 500px) {
+  .aplayer {
+    border-radius: 8px;
+  }
+}
+.l_header .aplayer-volume-wrap {
+  display: none !important;
+}
+.highlight {
+  position: relative;
+}
+.btn-copy {
+  z-index: 1;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  font-family: Menlo, Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 8px;
+  color: var(--color-meta);
+  background: var(--color-card);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  opacity: 0;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+.btn-copy >i {
+  margin-right: 4px;
+}
+.btn-copy:hover {
+  color: #ff5722;
+  background: #ffeee8;
+}
+.highlight:hover .btn-copy {
+  opacity: 1;
+}
+.article pre:hover .btn-copy {
+  opacity: 1;
+}
 article#comments {
   position: relative;
 }
@@ -2500,6 +2576,131 @@ article#comments #valine_container .vinput {
 }
 article#comments #valine_container p {
   color: var(--color-text);
+}
+div#rightmenu-wrapper {
+  display: none;
+  position: fixed;
+  z-index: 9000;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+ul.list-v.rightmenu {
+  display: block;
+  max-width: 240px;
+  overflow: hidden;
+}
+ul.list-v.rightmenu.left {
+  right: 0;
+}
+ul.list-v.rightmenu.top {
+  bottom: 0;
+}
+ul.list-v.rightmenu a {
+  cursor: default;
+}
+ul.list-v.rightmenu a.vlts-menu {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 32px;
+}
+ul.list-v.rightmenu li.navigation,
+ul.list-v.rightmenu li.music {
+  display: flex;
+  justify-content: space-between;
+}
+ul.list-v.rightmenu li.navigation a.icon-only,
+ul.list-v.rightmenu li.music a.icon-only {
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 32px;
+  overflow: hidden;
+  width: 32px;
+  height: 32px;
+}
+ul.list-v.rightmenu li.navigation a.nav i,
+ul.list-v.rightmenu li.music a.nav i {
+  margin: 0;
+  width: 32px;
+  line-height: 32px;
+}
+ul.list-v.rightmenu li.navigation a.nav:first-child,
+ul.list-v.rightmenu li.music a.nav:first-child {
+  margin-left: 10px;
+}
+ul.list-v.rightmenu li.navigation a.nav:last-child,
+ul.list-v.rightmenu li.music a.nav:last-child {
+  margin-right: 10px;
+}
+ul.list-v.rightmenu li.music.name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ul.list-v.rightmenu li.music.name p.nav.music-title {
+  color: #696969;
+  font-size: 0.875rem;
+  max-width: 128px;
+  margin: 0 20px;
+  overflow: hidden;
+}
+ul.list-v.rightmenu li.music.name p.nav.music-title:hover {
+  background: none;
+}
+ul.list-v.rightmenu li.music a.nav.volume {
+  width: 100%;
+  padding: 0 8px;
+}
+ul.list-v.rightmenu li.music a.nav.volume:hover {
+  background: transparent;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar {
+  margin: 4px 0 8px;
+  position: relative;
+  height: 8px;
+  width: 100%;
+  background: #ededed;
+  border-radius: 32px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar i.left,
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar i.right {
+  color: #696969;
+  position: absolute;
+  top: 0;
+  width: 28px;
+  line-height: 28px;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  opacity: 0;
+  transform: scale(0.5) translateY(-18px);
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar i.left {
+  left: 0;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar i.right {
+  right: 0;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar:hover {
+  height: 28px;
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar:hover i {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar .aplayer-volume {
+  background: #44d7b6;
+  height: 100%;
+  width: 100%;
 }
 article#arc,
 article#cat,
@@ -3694,6 +3895,9 @@ article#comments #loading-comments a.load-comments:hover {
 }
 .white-box {
   background: var(--color-card);
+}
+.reveal {
+  visibility: hidden;
 }
 img {
   max-width: 100%;
