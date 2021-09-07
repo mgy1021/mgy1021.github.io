@@ -22,9 +22,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>ES6 - Mogy的博客</title>
-  
-    <meta name="keywords" content="ES6">
+  <title>关于 - Mogy的博客</title>
   
 
   
@@ -120,15 +118,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
         <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
@@ -371,7 +367,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper post search' style="display: ;">
+        <div id="full" class='cover-wrapper docs search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -431,329 +427,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-<div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+<div class='l_main no_sidebar'>
+  <article class="article post white-box reveal md shadow article-type-docs" id="docs" itemscope itemprop="blogPost">
   
 
 
-  
-    <div class='headimg-div'>
-      <a class='headimg-a'>
-        <img class='headimg' src='https://mgy1021.github.io/Images/ES6.jpg'/>
-      </a>
-    </div>
   
   <div class="article-meta" id="top">
     
     
-      <a title='ES6' href='/2021/08/31/ES6/'>
-        <img class='thumbnail' src='https://img.vim-cn.com/17/0c7b02722686d1527a1df807dae0794d995860.png'>
-      </a>
-    
-    
-      <h1 class="title">
-        ES6
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>请设置文章作者</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/">ES6</a>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021年8月31日</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
-      
-      <div id="lc-pv" data-title="ES6" data-path="/2021/08/31/ES6/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
-          
-        
-      </div>
     
   </div>
 
 
   
   
-  <h4 id="1-为什么要学习ES6"><a href="#1-为什么要学习ES6" class="headerlink" title="1. 为什么要学习ES6"></a>1. 为什么要学习<code>ES6</code></h4><ul>
-<li>ES的本版变动内容最多，具有里程碑意义</li>
-<li><code>ES6</code>加入许多新的语法特性，编程实现更简单、高效</li>
-<li><code>ES6</code>是前端发展趋势，就业必备技能（在三大框架中大量使用了<code>ES6</code>的语法）</li>
-</ul>
-<h4 id="2-ES6的新语法"><a href="#2-ES6的新语法" class="headerlink" title="2. ES6的新语法"></a>2. ES6的新语法</h4><h5 id="1-let声明变量"><a href="#1-let声明变量" class="headerlink" title="1. let声明变量"></a>1. <code>let</code>声明变量</h5><ul>
-<li>变量不能重复声明</li>
-<li>块级作用域(变量只在代码块里面有效)</li>
-<li>不存在变量提升</li>
-<li>不影响作用域链</li>
-</ul>
-<h5 id="2-const声明常量"><a href="#2-const声明常量" class="headerlink" title="2. const声明常量"></a>2. <code>const</code>声明常量</h5><ul>
-<li>常量的值不能修改</li>
-<li>声明时必须赋值</li>
-<li>块级作用域</li>
-<li>对于数组或者对象进行修改，不会报错</li>
-</ul>
-<h5 id="3-结构赋值"><a href="#3-结构赋值" class="headerlink" title="3. 结构赋值"></a>3. 结构赋值</h5><ul>
-<li><p><code>ES6</code>允许按照一定模型从数组或者对象中提取值，对变量进行赋值，这被称为解构赋值。</p>
-<ul>
-<li><p>数组解构</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> F4 = [<span class="string">&quot;小沈阳&quot;</span>,<span class="string">&quot;刘能&quot;</span>,<span class="string">&quot;赵四&quot;</span>,<span class="string">&quot;宋小宝&quot;</span>]</span><br><span class="line"><span class="keyword">let</span> [xiao,liu,zhao,song] = F4</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(xiao);  <span class="comment">// 小沈阳</span></span><br><span class="line"><span class="built_in">console</span>.log(liu);   <span class="comment">// 刘能</span></span><br><span class="line"><span class="built_in">console</span>.log(xiao);  <span class="comment">// 赵四</span></span><br><span class="line"><span class="built_in">console</span>.log(song);  <span class="comment">// 宋小宝</span></span><br></pre></td></tr></table></figure></li>
-<li><p>对象解构</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> zhao = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;赵本山&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>:<span class="string">&quot;不详&quot;</span>,</span><br><span class="line">    <span class="attr">xiaopin</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;我可以演小品&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;name.age,xiaopin&#125; = zhao;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line"><span class="built_in">console</span>.log(age);</span><br><span class="line"><span class="built_in">console</span>.log(xiaopin);</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h5 id="4-模板字符串"><a href="#4-模板字符串" class="headerlink" title="4. 模板字符串"></a>4. 模板字符串</h5><ul>
-<li><p><code>ES6</code>引入新的声明字符串的方式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">`我是一个模板字符串哦`</span></span><br></pre></td></tr></table></figure></li>
-<li><p>特性：</p>
-<ul>
-<li><p>内容中可以直接出现换行符</p>
-</li>
-<li><p>变量拼接</p>
-<p><code>let lovest = &#39;魏翔&#39;</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> out = <span class="string">`<span class="subst">$&#123;lovest&#125;</span>是我心目中最搞笑的演员`</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h5 id="5-简化对象"><a href="#5-简化对象" class="headerlink" title="5. 简化对象"></a>5. 简化对象</h5><ul>
-<li><p><code>ES6</code>允许在大括号里面，直接写入变量和函数，作为对象的属性和方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;Mogy&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> change = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;我们可以改变你&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> school = &#123;</span><br><span class="line">    name,</span><br><span class="line">    change,</span><br><span class="line">    <span class="function"><span class="title">improve</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;我们可以提升你的技能&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h5 id="6-箭头函数"><a href="#6-箭头函数" class="headerlink" title="6.箭头函数"></a>6.箭头函数</h5><ul>
-<li><p>特性</p>
-<ul>
-<li><p><code>this</code>是静态的，this始终是指向函数声明时所在作用域下的this的值。</p>
-</li>
-<li><p>不能作为构造实例化对象</p>
-</li>
-<li><p>不能使用<code>arguments</code>变量</p>
-</li>
-<li><p>箭头函数的简写</p>
-<ul>
-<li>省略小括号，当形参有且只有一个时可省略</li>
-<li>省略大括号，当代码体中的语句只有一句时可以省略</li>
-</ul>
-<p><code>let pow = n =&gt; n*n</code></p>
-</li>
-</ul>
-</li>
-<li><p>使用场景</p>
-<ul>
-<li>箭头函数适合与<code>this</code>无关的回调，定时器，数组的方法回调</li>
-<li>箭头函数不适合与<code>this</code>有关的回调，事件回调，对象的方法</li>
-</ul>
-</li>
-</ul>
-<h5 id="7-ES6允许给函数参数赋值初始值"><a href="#7-ES6允许给函数参数赋值初始值" class="headerlink" title="7. ES6允许给函数参数赋值初始值"></a>7. <code>ES6</code>允许给函数参数赋值初始值</h5><ol>
-<li><p>形参初始值（具有默认值的参数，一般位置要靠后）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b,c=<span class="number">10</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b+c</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> result = add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)  <span class="comment">// 6</span></span><br><span class="line"><span class="keyword">let</span> result = add(<span class="number">1</span>,<span class="number">2</span>)    <span class="comment">// 13</span></span><br></pre></td></tr></table></figure></li>
-<li><p>与解构赋值结合使用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">connect</span>(<span class="params">&#123;host = <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>,username,password,port&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(host);</span><br><span class="line">    <span class="built_in">console</span>.log(username);</span><br><span class="line">    <span class="built_in">console</span>.log(password);</span><br><span class="line">    <span class="built_in">console</span>.log(port);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">connect(&#123;</span><br><span class="line">    <span class="attr">host</span>:<span class="string">&#x27;baidu.com&#x27;</span>,</span><br><span class="line">    <span class="attr">username</span>:<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>:<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    <span class="attr">port</span>:<span class="number">3306</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h5 id="8-rest参数"><a href="#8-rest参数" class="headerlink" title="8. rest参数"></a>8. rest参数</h5><ul>
-<li><p><code>ES6</code>引入reset参数，用于获取函数的实参，用来代替arguments</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">date</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(args);</span><br><span class="line">&#125;</span><br><span class="line">date(<span class="string">&#x27;阿娇&#x27;</span>,<span class="string">&#x27;柏芝&#x27;</span>,<span class="string">&#x27;思慧&#x27;</span>);   <span class="comment">//数组 可以使用filter some every map等数组方法</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p><code>reset</code>参数必须要放到参数最后</p>
-</li>
-</ul>
-<h5 id="9-扩展运算符"><a href="#9-扩展运算符" class="headerlink" title="9. 扩展运算符..."></a>9. 扩展运算符<code>...</code></h5><ul>
-<li><p>扩展运算符能将<strong>数组</strong>转换为逗号分隔的<strong>参数列表</strong>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tfboys = [<span class="string">&quot;易烊千玺&quot;</span>,<span class="string">&quot;王源&quot;</span>,<span class="string">&quot;王俊凯&quot;</span>];<span class="comment">//声明一个函数function chunwan()&#123;    console.log(arguments)&#125;chunwan(...tfboys)  // chunwan(&quot;易烊千玺&quot;,&quot;王源&quot;,&quot;王俊凯&quot;)// 数组的克隆const sanzhihua = [&#x27;E&#x27;,&#x27;G&#x27;,&#x27;M&#x27;];const sanyecao = [...sanzhihua] // [&#x27;E&#x27;,&#x27;G&#x27;,&#x27;M&#x27;]</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h5 id="10-Symbol基本使用"><a href="#10-Symbol基本使用" class="headerlink" title="10. Symbol基本使用"></a>10. <code>Symbol</code>基本使用</h5><ul>
-<li><p><code>ES6</code>引入了一种新的数据类型<code>Symbol</code>，表示独一无二的值。它是<code>JS</code>语言的第七种数据类型，是一种类似于字符串的数据类型。</p>
-</li>
-<li><p><code>Symbol</code><strong>的特点</strong></p>
-<ul>
-<li><p><strong>Symbol</strong>的值是唯一的，用来解决命名冲突的问题</p>
-</li>
-<li><p><strong>Symbol</strong>的值不能与其他数据进行运算</p>
-</li>
-<li><p><strong>Symbol</strong>定义的对象属性不能使用<code>for...in</code>循环遍历，但是可以使用<code>Reflect.ownKeys</code>来获取对象的所有键名</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个Symbollet s = Symbol();console.log(s,typeof s); // Symbol() &quot;Symbol&quot;let s2 = Symbol(&quot;注释&quot;);let s3 = Symbol(&quot;注释&quot;);console.log(s2 == s3)   // false// Symbol.for 创建let s4 = Symbol.for(&#x27;Mogy&#x27;);let s5 = Symbol.for(&#x27;Mogy&#x27;);console.log(s4 == s5)   // true</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><code>Symbol</code><strong>的使用场景</strong></p>
-<ul>
-<li><p>给对象添加属性或者方法，表示独一无二的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> game = &#123;            <span class="attr">name</span>: <span class="string">&#x27;俄罗斯方块&#x27;</span>,            <span class="function"><span class="title">up</span>(<span class="params"></span>)</span> &#123;                <span class="built_in">console</span>.log(<span class="string">&quot;向上&quot;</span>);            &#125;,            <span class="function"><span class="title">down</span>(<span class="params"></span>)</span> &#123;                <span class="built_in">console</span>.log(<span class="string">&quot;向下&quot;</span>);            &#125;        &#125;        <span class="keyword">let</span> methods = &#123;            <span class="attr">up</span>: <span class="built_in">Symbol</span>(),            <span class="attr">down</span>: <span class="built_in">Symbol</span>(),        &#125;        game[methods.up] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;            <span class="built_in">console</span>.log(<span class="string">&quot;我可以改变形状&quot;</span>);        &#125;        game[methods.down] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;            <span class="built_in">console</span>.log(<span class="string">&quot;我可以快速下降&quot;</span>);        &#125;        <span class="built_in">console</span>.log(game);</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h5 id="11-迭代器"><a href="#11-迭代器" class="headerlink" title="11. 迭代器"></a>11. 迭代器</h5><p>​          迭代器是一种接口，为各种不同的数据类型提供统一的访问机制。任何数据结构只要部署了<code>Iterator</code>接口(指的是对象里的一个属性)，就可以完成遍历操作。</p>
-<ul>
-<li>原生具备<code>Iterator</code>接口的数据<ul>
-<li>Array</li>
-<li>Arguments</li>
-<li>Set</li>
-<li>Map</li>
-<li>String</li>
-<li><code>TypedArray</code></li>
-<li><code>NodeList</code></li>
-</ul>
-</li>
-<li>工作原理<ul>
-<li>创建一个指针对象，指向当前数据结构的起始位置</li>
-<li>第一次调用对象的<strong>next</strong>方法，指针自动指向数据结构的第一个成员</li>
-<li>接下来不断调用<strong>next</strong>方法，指针一直往后移动，直到指向最后一个成员</li>
-</ul>
-</li>
-</ul>
-<h5 id="12-生成器"><a href="#12-生成器" class="headerlink" title="12. 生成器"></a>12. 生成器</h5><p>​    生成器其实就是一个特殊的函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params"></span>)</span>&#123;    <span class="built_in">console</span>.log(<span class="number">111</span>);    <span class="keyword">yield</span> one()    <span class="built_in">console</span>.log(<span class="number">222</span>);    <span class="keyword">yield</span> two();    <span class="built_in">console</span>.log(<span class="number">333</span>);    <span class="keyword">yield</span> three();&#125;<span class="keyword">let</span> Iterator = gen() <span class="comment">// 返回一个迭代器对象Iterator.next() // 111</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="13-Set集合"><a href="#13-Set集合" class="headerlink" title="13. Set集合"></a><strong>13. Set</strong>集合</h5><p>​        <code>ES6</code>提供了新的数据结构<strong>Set</strong>集合，它是一个对象，类似于数组，但是成员是唯一的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明一个 setlet s = new Set();let s2 = new Set([&quot;好事&quot;,&quot;喜事&quot;,&quot;坏事&quot;,&quot;丑事&quot;,&quot;好事&quot;]);console.log(typeof s)   // Object// 获取元素的个数console.log(s2.size)  // 4// 添加元素s2.add(&quot;悲事&quot;)// 删除元素s2.delete(&quot;好事&quot;)// 检测s2.has(&quot;好事&quot;)// 清空s2.clear()</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="14-类"><a href="#14-类" class="headerlink" title="14.类"></a>14.类</h5><h5 id="15-数值扩展"><a href="#15-数值扩展" class="headerlink" title="15.数值扩展"></a>15.数值扩展</h5><ol>
-<li><p><code>Number.EPSILON</code></p>
-<p><code>Number.EPSILON</code>是JavaScript表示的最小精度</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span>+<span class="number">0.2</span> === <span class="number">0.3</span>)  <span class="comment">// falsefunction equal(a,b)&#123;    if(Math.abs(a-b) &lt; Number.EPSILON)&#123;        return true;    &#125;else&#123;        return false;    &#125;&#125;console.log(equal(0.1+0.2,0.3))   // true</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>Number.isFinite</code></p>
-<p>检查一个数值是否为有限数</p>
-</li>
-<li><p><code>Number.isNaN</code></p>
-<p>检测一个数值是否为<code>NaN</code></p>
-</li>
-<li><p><code>Number.parseInt </code></p>
-<p>字符串转整数</p>
-</li>
-<li><p><code>Number.isInteger</code></p>
-<p>判断一个数是否为整数</p>
-</li>
-<li><p><code>Math.trunc</code></p>
-<p>将数字的小数部分抹掉</p>
-</li>
-<li><p><code>Math.sign</code></p>
-<p>判断一个数是整数、负数还是零</p>
-</li>
-</ol>
-<h5 id="16-对象方法的扩展"><a href="#16-对象方法的扩展" class="headerlink" title="16.对象方法的扩展"></a>16.对象方法的扩展</h5><ol>
-<li><p><code>Object.is</code></p>
-<p>判断两个值是否完全相等</p>
-</li>
-<li><p><code>Object.assign</code></p>
-<p>对象合并</p>
-</li>
-<li><p><code>Object.setPrototypeOf Object.getPrototypeOf</code></p>
-<p>设置原型对象</p>
-</li>
-</ol>
-<h5 id="17-模块化"><a href="#17-模块化" class="headerlink" title="17.模块化"></a>17.模块化</h5><p>​        模块化是指将一个大的程序文件，拆分成许多小的文件，然后将小文件组合起来。</p>
-<ol>
-<li><h6 id="模块化开发的好处"><a href="#模块化开发的好处" class="headerlink" title="模块化开发的好处"></a>模块化开发的好处</h6><ul>
-<li>防止命名冲突</li>
-<li>代码复用</li>
-<li>高维护性</li>
-</ul>
-</li>
-<li><p>模块化规范</p>
-<ul>
-<li><code>CommonJS</code> =&gt; <code>NodeJS、Browserify</code></li>
-<li><code>AMD </code>            =&gt; <code>requireJS</code></li>
-<li><code>CMD</code>             =&gt; <code>seaJS</code></li>
-</ul>
-</li>
-<li><p><code>ES6</code>模块化语法</p>
-<ul>
-<li><code>export</code>命令用于规定模块的对外接口</li>
-<li><code>import</code>命令用于输入其他模块提供的功能</li>
-</ul>
-<p>导出的方式：</p>
-<ul>
-<li><code>export let a = 2</code></li>
-<li><code>export &#123;a,method&#125;</code></li>
-<li><code>export default &#123;对象&#125;</code></li>
-</ul>
-<p> 引入的方式：</p>
-<ul>
-<li><p>通用方式</p>
-<p><code>import * as m1 from &quot;...&quot;</code></p>
-</li>
-<li><p>解构赋值形式</p>
-<p><code>import &#123;school,teach&#125; from &quot;...&quot;</code></p>
-<p><code>import &#123;default as  m3&#125; from &quot;...&quot;</code></p>
-</li>
-<li><p>简便形式(针对默认暴露)</p>
-<p><code>import m3 from &quot;...&quot;</code></p>
-</li>
-</ul>
-</li>
-<li><p><strong>babel</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx babel 文件 -d 文件夹 --presets=babel-preset-env</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>模块化的差异</strong></p>
-<p><code>ES6</code>模块与<code>CommonJS</code>模块化的差异：</p>
-<ol>
-<li><p><code>CommonJS</code>模块输出的是一个值的拷贝，<code>ES6</code>模块输出的是值的引用</p>
-<p><code>ES6</code>模块加载的不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p>
-<p><code>ES6</code>模块输出的是值的引用</p>
-</li>
-<li><p><code>CommonJS</code>模块是运行时加载，<code>ES6</code>模块时编译时输出接口</p>
-<p>加载的是一个对象,即module.exports属性，该对象只有在脚本运行完才能完成。</p>
-</li>
-</ol>
-</li>
-</ol>
-<h4 id="3-ES7的新特性"><a href="#3-ES7的新特性" class="headerlink" title="3. ES7的新特性"></a>3. <code>ES7</code>的新特性</h4><ol>
-<li><p><code>Array.prototype.includes</code></p>
-<p>用来检测数组中是否包含某个元素，返回布尔类型值</p>
-</li>
-<li><p><code>**</code>幂运算</p>
-<p>相当于<code>Math.pow()</code>,  2**3 ==&gt; <code>Math.pow(2,3)</code></p>
-</li>
-</ol>
-<h4 id="4-ES8的新特性"><a href="#4-ES8的新特性" class="headerlink" title="4.ES8的新特性"></a>4.<code>ES8</code>的新特性</h4><h5 id="4-1-async和await"><a href="#4-1-async和await" class="headerlink" title="4.1 async和await"></a>4.1 <code>async</code>和<code>await</code></h5><p>​        异步编程的解决方案，<code>async</code>和<code>await</code>两种语法结合可以让异步代码像同步代码一样编写</p>
-<h6 id="4-1-1-async函数"><a href="#4-1-1-async函数" class="headerlink" title="4.1.1 async函数"></a>4.1.1 <code>async</code>函数</h6><ol>
-<li><code>async</code>函数的返回值为<code>promise</code>对象</li>
-<li><code>promise</code>对象的结果由<code>async</code>函数执行的返回值决定</li>
-</ol>
-<h6 id="4-1-2-await表达式"><a href="#4-1-2-await表达式" class="headerlink" title="4.1.2 await表达式"></a>4.1.2 <code>await</code>表达式</h6><ol>
-<li><code>await</code>必须写在<code>async</code>函数中</li>
-<li><code>await</code>右侧的表达式一般为<code>promise</code>对象</li>
-<li><code>await</code>返回的是<code>promise</code>成功的值</li>
-<li><code>await</code>的<code>promise</code>失败了，就会抛出异常，需要通过try…catch捕获处理</li>
-</ol>
+  <p>下面写关于自己的内容</p>
 
   
   
@@ -761,20 +450,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='footer'>
       
       
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                
-              
-            
-              
-                <p>本文永久链接是：<a href=https://mgy1021.github.io/2021/08/31/ES6/>https://mgy1021.github.io/2021/08/31/ES6/</a></p>
-              
-            
-          </blockquote>
-        </div>
       
       
     </div>
@@ -786,76 +461,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='article-meta' id="bottom">
     <div class='new-meta-box'>
       
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-07T22:26:40+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年9月7日</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ES6/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>ES6</p></a></div>
-
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://mgy1021.github.io/2021/08/31/ES6/&title=ES6 - Mogy的博客&pics=https://img.vim-cn.com/17/0c7b02722686d1527a1df807dae0794d995860.png&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://mgy1021.github.io/2021/08/31/ES6/&title=ES6 - Mogy的博客&pics=https://img.vim-cn.com/17/0c7b02722686d1527a1df807dae0794d995860.png&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://mgy1021.github.io/2021/08/31/ES6/&title=ES6 - Mogy的博客&pics=https://img.vim-cn.com/17/0c7b02722686d1527a1df807dae0794d995860.png&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
     </div>
   </div>
 
@@ -863,28 +468,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
 
-  
-    <div class="prev-next">
-      
-        <a class='prev' href='/2021/08/31/git/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>git</p>
-          <p class='content'>初始化本地仓库  git init
-更新代码  git pull origin master
-提交代码
-git add .
-将需要提交的所有文件添加到缓存区
-
-git commit -m &#3...</p>
-        </a>
-      
-      
-        <a class='next' href='/2021/08/31/Ajax/'>
-          <p class='title'>Ajax<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>AJAX的特点1.AJAX的优点  （1）可以无需刷新页面与服务器进行通信  （2）允许你根据用户事件来更新部分网页内容
-2.AJAX的缺点  （1）没有浏览历史，不能回退  （2）存在跨域问题...</p>
-        </a>
-      
-    </div>
   
 </article>
 
@@ -908,158 +491,6 @@ git commit -m &#3...</p>
 </div>
 <aside class='l_side'>
   
-  
-
-  
-    
-    
-
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0ES6"><span class="toc-text">1. 为什么要学习ES6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-ES6%E7%9A%84%E6%96%B0%E8%AF%AD%E6%B3%95"><span class="toc-text">2. ES6的新语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-let%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="toc-text">1. let声明变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-const%E5%A3%B0%E6%98%8E%E5%B8%B8%E9%87%8F"><span class="toc-text">2. const声明常量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E7%BB%93%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-text">3. 结构赋值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">4. 模板字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E7%AE%80%E5%8C%96%E5%AF%B9%E8%B1%A1"><span class="toc-text">5. 简化对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="toc-text">6.箭头函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-ES6%E5%85%81%E8%AE%B8%E7%BB%99%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E8%B5%8B%E5%80%BC%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="toc-text">7. ES6允许给函数参数赋值初始值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-rest%E5%8F%82%E6%95%B0"><span class="toc-text">8. rest参数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">9. 扩展运算符...</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10-Symbol%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">10. Symbol基本使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">11. 迭代器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12-%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">12. 生成器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#13-Set%E9%9B%86%E5%90%88"><span class="toc-text">13. Set集合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#14-%E7%B1%BB"><span class="toc-text">14.类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#15-%E6%95%B0%E5%80%BC%E6%89%A9%E5%B1%95"><span class="toc-text">15.数值扩展</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#16-%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-text">16.对象方法的扩展</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#17-%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">17.模块化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-ES7%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-text">3. ES7的新特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-ES8%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-text">4.ES8的新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-async%E5%92%8Cawait"><span class="toc-text">4.1 async和await</span></a></li></ol></li></ol>
-    </div>
-  </section>
-
-
-  
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>11 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Tue Sep 07 2021 23:32:50 GMT+0800 (China Standard Time)</div>
-            <div id="last-update-show">2021-09-07 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-09-07 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
-
-  
-
 
 </aside>
 
@@ -1071,21 +502,21 @@ git commit -m &#3...</p>
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="ES6";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
-  pdata.commentPlaceholder="";
+  pdata.commentPlaceholder="有什么想对我说的呢？";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
