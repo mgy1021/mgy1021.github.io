@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：Webpack - Mogy的博客</title>
+  <title>一个基于nodeJs的express服务器框架 - Mogy的博客</title>
+  
+    <meta name="keywords" content="NodeJs">
   
 
   
@@ -371,7 +371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -431,85 +431,222 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        一个基于nodeJs的express服务器框架
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年9月7日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="一个基于nodeJs的express服务器框架" data-path="/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="Express应用程序生成器"><a href="#Express应用程序生成器" class="headerlink" title="Express应用程序生成器"></a><code>Express</code>应用程序生成器</h2><p><code>Express</code>是一个基于<code>Node.js</code>平台、快速、开放、极简的Web开发框架</p>
+<p>通过该应用的生成器工具<code>express-generator</code>可以快速创建一个应用的框架。类似前端的脚手架。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="1-全局安装"><a href="#1-全局安装" class="headerlink" title="1.全局安装"></a>1.全局安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express-generator</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入express模块</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>)</span><br><span class="line"><span class="comment">// 创建express项目</span></span><br><span class="line"><span class="keyword">const</span> express = express()</span><br><span class="line"><span class="comment">// 端口号</span></span><br><span class="line">port = <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&quot;/&quot;</span>,<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">    res.send(<span class="string">&quot;Hello World!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 监听端口，启动express服务器</span></span><br><span class="line">app.listen(port,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">`Example app listening at http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+  
   
     
+    <div class='footer'>
       
-  <section class="post-list">
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                
+              
+            
+              
+                <p>本文永久链接是：<a href=https://mgy1021.github.io/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/>https://mgy1021.github.io/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
     
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-07T09:50:37+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年9月7日</p>
+  </a>
+</div>
+
+        
       
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
   
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2021/08/20/Webpack/">
-        <img class='headimg' src='https://mgy1021.github.io/Images/webpack-headerImg.png'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/08/20/Webpack/">
-        Webpack
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        Webpack的简介1. 什么是Webpack？Webpac是一种前端资源构建工具，一个静态模块打包器(module bundler)。
-在Webpack看来，前端的所有资源文件(js/json/css/img/less/…)都会作为模块处理。它将根据模块的依赖关系进行静态分析，打包生成对应的静态资源(bundle)。
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NodeJs/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NodeJs</p></a></div>
 
-2. Webpack的五个核心概念2.1 Entry​        ...
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://mgy1021.github.io/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/&title=一个基于nodeJs的express服务器框架 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://mgy1021.github.io/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/&title=一个基于nodeJs的express服务器框架 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://mgy1021.github.io/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/&title=一个基于nodeJs的express服务器框架 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2021-08-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/">Webpack</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2021/08/20/Webpack/'>
-            阅读全文
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84Mysql%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>nodeJs中的Mysql模块的使用</p>
+          <p class='content'>在nodeJS中，使用mysql模块连接数据库,使用方式如下：
+12345678910111213141516171819202122const mysql = require(&quot;my...</p>
+        </a>
+      
+      
+        <a class='next' href='/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84Buffer%E7%BC%93%E5%86%B2%E5%99%A8/'>
+          <p class='title'>nodeJ中的Buffer缓冲器<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Buffer缓冲器Buffer类被引入作为Node.js API的一部分，使其可以在TCP流或文件系统操作等场景中处理二进制数据流。可以将Buffer理解为输送二进制数据流的缓存。
+Buffer...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -517,146 +654,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Mogy的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088"
-            ><div class='name'>前端学习栈</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Ajax"
-            ><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088ES6"
-            ><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Webpack"
-            ><div class='name'>Webpack</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088git"
-            ><div class='name'>git</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Express%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">Express应用程序生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85"><span class="toc-text">1.全局安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">1.创建项目</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/tags/ES6/" style="font-size: 14px; color: #999">ES6</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/NodeJs/" style="font-size: 24px; color: #555">NodeJs</a> <a href="/tags/Webpack/" style="font-size: 14px; color: #999">Webpack</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -665,8 +684,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="一个基于nodeJs的express服务器框架";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

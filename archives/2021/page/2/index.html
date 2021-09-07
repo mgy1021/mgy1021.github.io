@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：Webpack - Mogy的博客</title>
+  <title>归档：2021 - Mogy的博客</title>
   
 
   
@@ -120,7 +120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -371,7 +371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="half" class='cover-wrapper  search' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -431,18 +431,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list">
-    
-      
-        
-          
-        
-      
     
     
       
@@ -505,11 +497,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </section>
   
     
-  
-
-
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/archives/2021/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          2 / 2
+        </p>
+        
+      </div>
     
   
+
+
+	
 </div>
 <aside class='l_side'>
   
@@ -672,14 +678,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="none";
-    cover_wrapper.style.display="none";
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
     
   
 </script>

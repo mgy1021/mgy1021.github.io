@@ -22,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Hello World - Mogy的博客</title>
+  <title>nodeJ中的s文件系统 - Mogy的博客</title>
+  
+    <meta name="keywords" content="NodeJs">
   
 
   
@@ -440,7 +442,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        Hello World
+        nodeJ中的s文件系统
       </h1>
       <div class='new-meta-box'>
         
@@ -464,7 +466,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021年8月20日</p>
+    <p>发布于：2021年9月7日</p>
   </a>
 </div>
 
@@ -475,7 +477,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="Hello World" data-path="/2021/08/20/hello-world/">
+      <div id="lc-pv" data-title="nodeJ中的s文件系统" data-path="/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84s%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -493,19 +495,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+  <h1 id="使用Node-js读取文件"><a href="#使用Node-js读取文件" class="headerlink" title="使用Node.js读取文件"></a>使用<code>Node.js</code>读取文件</h1><p>在<code>Nodejs</code>中读取文件最简单的方法是使用<code>fs.readFile()</code>方法，参数：文件路径，字符编码，回调函数。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取文件</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;./1-url.js&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>同步版本<code>fs.readFileSync()</code></p>
+<h1 id="使用Node-js写入文件"><a href="#使用Node-js写入文件" class="headerlink" title="使用Node.js写入文件"></a>使用<code>Node.js</code>写入文件</h1><p>写入文件最简单的方法是使用<code>fs.writeFile()</code>方法,参数：(写入文件，写入内容，回调函数)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写入文件</span></span><br><span class="line">fs.writeFile(<span class="string">&quot;./hello.txt&quot;</span>, <span class="string">&quot;hello123&quot;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;写入成功!&quot;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>同步版本<code>fs.writeFileSync()</code></p>
+<h1 id="同步读写文件"><a href="#同步读写文件" class="headerlink" title="同步读写文件"></a>同步读写文件</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同步读写操作</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> data = fs.readFileSync(<span class="string">&quot;./1-url.js&quot;</span>, <span class="string">&quot;utf8&quot;</span>);</span><br><span class="line">    fs.writeFileSync(<span class="string">&quot;./1-url2.js&quot;</span>, data)</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
   
   
@@ -522,7 +525,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=https://mgy1021.github.io/2021/08/20/hello-world/>https://mgy1021.github.io/2021/08/20/hello-world/</a></p>
+                <p>本文永久链接是：<a href=https://mgy1021.github.io/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84s%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/>https://mgy1021.github.io/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84s%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</a></p>
               
             
           </blockquote>
@@ -539,10 +542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-20T08:55:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-07T09:50:13+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年8月20日</p>
+    <p>更新于：2021年9月7日</p>
   </a>
 </div>
 
@@ -550,6 +553,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NodeJs/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NodeJs</p></a></div>
+
 
         
       
@@ -561,7 +567,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://mgy1021.github.io/2021/08/20/hello-world/&title=Hello World - Mogy的博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://mgy1021.github.io/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84s%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/&title=nodeJ中的s文件系统 - Mogy的博客&summary="
           
           >
           
@@ -573,7 +579,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://mgy1021.github.io/2021/08/20/hello-world/&title=Hello World - Mogy的博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://mgy1021.github.io/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84s%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/&title=nodeJ中的s文件系统 - Mogy的博客&summary="
           
           >
           
@@ -585,7 +591,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://mgy1021.github.io/2021/08/20/hello-world/&title=Hello World - Mogy的博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://mgy1021.github.io/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84s%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/&title=nodeJ中的s文件系统 - Mogy的博客&summary="
           
           >
           
@@ -615,12 +621,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2021/08/20/Webpack/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Webpack</p>
-          <p class='content'>Webpack的简介1. 什么是Webpack？Webpac是一种前端资源构建工具，一个静态模块打包器(module bundler)。
-在Webpack看来，前端的所有资源文件(js/json...</p>
+        <a class='prev' href='/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84Buffer%E7%BC%93%E5%86%B2%E5%99%A8/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>nodeJ中的Buffer缓冲器</p>
+          <p class='content'>Buffer缓冲器Buffer类被引入作为Node.js API的一部分，使其可以在TCP流或文件系统操作等场景中处理二进制数据流。可以将Buffer理解为输送二进制数据流的缓存。
+Buffer...</p>
         </a>
       
+      
+        <a class='next' href='/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B/'>
+          <p class='title'>nodeJs中的进程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>process(进程)process对象是一个全局变量，提供了有关当前Node.js进程的信息并对其进行控制。作为全局变量，它始终可供Node.js应用程序使用，无需使用require()导入。...</p>
+        </a>
       
     </div>
   
@@ -662,7 +673,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        
     </div>
   </section>
 
@@ -681,7 +692,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="Hello World";
+  pdata.postTitle="nodeJ中的s文件系统";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
