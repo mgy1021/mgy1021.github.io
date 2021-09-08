@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2021/9 - Mogy的博客</title>
+  <title>线程机制与事件机制 - Mogy的博客</title>
+  
+    <meta name="keywords" content="浏览器,JavaScript,事件轮询">
   
 
   
@@ -120,7 +120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -371,7 +371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -432,443 +432,324 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/">
+      <h1 class="title">
         线程机制与事件机制
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        进程与线程进程(process)​        程序的一次执行，它占有了一片独有的内存空间。可以通过Window任务管理器查看进程。
-线程(thread)​        线程是进程内的一个概念，线程是进程内的一个独立执行单元，是程序执行的一个完整流程，是CPU的最小的调度单元。
-JS是一门单线程语言,但是使用H5中的Web Workers可以多线程运行。浏览器运行是多线程的
-单进程浏览器...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+      </h1>
+      <div class='new-meta-box'>
         
-        <time>2021-09-08</time>
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年9月8日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="线程机制与事件机制" data-path="/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="进程-process"><a href="#进程-process" class="headerlink" title="进程(process)"></a>进程(process)</h3><p>​        程序的一次执行，它占有了一片独有的内存空间。可以通过Window任务管理器查看进程。</p>
+<h3 id="线程-thread"><a href="#线程-thread" class="headerlink" title="线程(thread)"></a>线程(thread)</h3><p>​        线程是进程内的一个概念，线程是进程内的一个独立执行单元，是程序执行的一个完整流程，是CPU的最小的调度单元。</p>
+<p><code>JS</code>是一门<strong>单线程</strong>语言,但是使用H5中的Web Workers可以多线程运行。<br><code>浏览器</code>运行是多线程的</p>
+<p>单进程浏览器(firefox,老版IE)，多进程浏览器(chrome,新版IE)</p>
+<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><ul>
+<li>应用程序必须运行在某个进程的某个线程上</li>
+<li>一个进程中至少有一个运行的线程：主线程，进程启动后自动创建</li>
+<li>一个进程中也可以同时运行多个线程，我们会说程序是多线程运行的</li>
+<li>一个进程内的数据可以供其中的多个线程直接共享</li>
+<li>多个进程之间的数据是不能直接共享的</li>
+<li>线程池(thread pool):保存多个线程对象的容器，实现线程对象的反复利用。</li>
+</ul>
+<h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><h3 id="什么是浏览器内核？"><a href="#什么是浏览器内核？" class="headerlink" title="什么是浏览器内核？"></a>什么是浏览器内核？</h3><p>支撑浏览器运行的最核心的程序。不同浏览器可能不一样，内核由很多模块组成。模块有：</p>
+<ul>
+<li>JS引擎模块：负责js程序的编译与运行</li>
+<li>html，css文档解析模块：负责页面文本的解析</li>
+<li>DOM/CSS模块：负责dom/css在内存中的相关处理（生成DOM对象树）</li>
+<li>布局和渲染模块：负责页面的布局和效果的绘制（内存中的对象）</li>
+<li>定时器模块：负责定时器的管理</li>
+<li>事件响应模块：负责事件的管理 </li>
+<li>网络请求模块：负责ajax请求</li>
+<li>等等</li>
+</ul>
+<h2 id="JS代码分类和执行顺序"><a href="#JS代码分类和执行顺序" class="headerlink" title="JS代码分类和执行顺序"></a>JS代码分类和执行顺序</h2><h3 id="JS代码分类"><a href="#JS代码分类" class="headerlink" title="JS代码分类"></a><code>JS</code>代码分类</h3><ol>
+<li>同步代码</li>
+<li>回调代码</li>
+</ol>
+<h3 id="JS引擎执行代码的基本流程"><a href="#JS引擎执行代码的基本流程" class="headerlink" title="JS引擎执行代码的基本流程"></a><code>JS</code>引擎执行代码的基本流程</h3><ol>
+<li>先执行同步代码<ul>
+<li>设置定时器</li>
+<li>绑定监听</li>
+<li>发送ajax请求</li>
+</ul>
+</li>
+<li>后面在某个时刻才会执行回调代码</li>
+</ol>
+<h2 id="浏览器的事件循环机制"><a href="#浏览器的事件循环机制" class="headerlink" title="浏览器的事件循环机制"></a>浏览器的事件循环机制</h2><h3 id="JS是单线程的，非阻塞的"><a href="#JS是单线程的，非阻塞的" class="headerlink" title="JS是单线程的，非阻塞的"></a>JS是单线程的，非阻塞的</h3><h4 id="1-单线程"><a href="#1-单线程" class="headerlink" title="1.单线程"></a>1.单线程</h4><p>​        JS是单线程的，或者说只有一个主线程，也就是说它只能执行一段代码。所谓的单线程也只是相对于多线程而言。JS的设计初衷就没有考虑这些，针对JS这种不具备并行任务处理的特性，我们称之为“单线程”。</p>
+<p>JavaScript的主要用途是与用户互动，以及操作DOM。如果它是多线程的会有很多复杂的问题要处理，比如有两个线程同时操作DOM，一个线程删除了当前的DOM节点，一个线程是要操作当前的DOM阶段，最后以哪个线程的操作为准？为了避免这种，所以JS是单线程的。即使H5提出了web worker标准，它有很多限制，受主线程控制，是主线程的子线程。</p>
+<p>虽然JS运行在浏览器中是单线程的，但是浏览器是事件驱动的（Event driven），浏览器中很多行为是异步（Asynchronized）的，会创建事件并放入执行队列中。浏览器中很多异步行为都是由浏览器新开一个线程去完成，一个浏览器至少实现三个常驻线程：</p>
+<ul>
+<li>JS引擎线程</li>
+<li>GUI渲染线程</li>
+<li>事件触发线程</li>
+</ul>
+<h4 id="2-非阻塞"><a href="#2-非阻塞" class="headerlink" title="2.非阻塞"></a>2.非阻塞</h4><p>​    通过 event loop 实现。</p>
+<h3 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎"></a>JS引擎</h3><p>​        JS引擎是一个专门处理JavaScript脚本的虚拟机，一般会附带在网页浏览器中，比如最出名的就是Chrome浏览器的V8引擎，如下图所示，JS引擎主要有两个组件构成：</p>
+<ul>
+<li>堆-内存分配发生的地方</li>
+<li>栈-函数调用时会形成一个个栈帧</li>
+</ul>
+<h3 id="执行栈"><a href="#执行栈" class="headerlink" title="执行栈"></a>执行栈</h3><p>​        每一个函数执行的时候，都会生成新的execution  context（执行上下文），执行上下文会包含一些当前函数的参数、局部变量之类的信息，它会被推入栈中， running execution  context（正在执行的上下文）始终处于栈的顶部。当函数执行完后，它的执行上下文会从栈弹出。</p>
+<h3 id="event-loop-事件循环"><a href="#event-loop-事件循环" class="headerlink" title="event loop(事件循环)"></a>event loop(事件循环)</h3><blockquote>
+<p>Event Loop是一个程序结构，用于等待和发送消息和事件</p>
+</blockquote>
+<p>简单说，就是在程序中设置两个线程：一个负责程序本身的运行，称为主线程；另一个负责主线程与其他进程(主要是各种I/O操作)的通信，被称为<code>Event Loop线程</code>(消息线程)</p>
+<h3 id="事件循环与任务队列"><a href="#事件循环与任务队列" class="headerlink" title="事件循环与任务队列"></a>事件循环与任务队列</h3><p>事件循环可以简单描述为：</p>
+<ol>
+<li>函数入栈，当Stack中执行到异步任务的时候，就将他丢给WebAPIs,接着执行同步任务,直到Stack为空;</li>
+<li>在此期间WebAPIs完成这个事件，把回调函数放入CallbackQueue中等待;</li>
+<li>当执行栈为空时，Event Loop把Callback Queue中的一个任务放入Stack中,回到第1步。</li>
+</ol>
+<ul>
+<li>Event Loop是由javascript宿主环境（像浏览器）来实现的;</li>
+<li>WebAPIs是由C++实现的浏览器创建的线程，处理诸如DOM事件、http请求、定时器等异步事件;</li>
+<li>JavaScript 的并发模型基于”事件循环”;</li>
+<li>Callback Queue(Event Queue 或者 Message Queue) 任务队列,存放异步任务的回调函数</li>
+</ul>
+<p><img src="https://pic2.zhimg.com/v2-433dbdf77542944ec6e441b94219adf5_r.jpg" class="lazyload" data-srcset="https://pic2.zhimg.com/v2-433dbdf77542944ec6e441b94219adf5_r.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="preview"></p>
+<p>执行栈: 同步代码的执行，按照顺序添加到执行栈中</p>
+<p>事件队列:  异步代码的执行，遇到异步事件不会等待它返回结果，而是将这个事件挂起，继续执行执行栈中的其他任务。当异步事件返回结果，将它放到事件队列中，被放入事件队列不会立刻执行起回调，而是等待当前执行栈中所有任务都执行完毕，主线程空闲状态，主线程会去查找事件队列中是否有任务，如果有，则取出排在第一位的事件，并把这个事件对应的回调放到执行栈中，然后执行其中的同步代码。</p>
+<p>简单用下图进行总结：</p>
+<p><img src="https://pic3.zhimg.com/v2-6849d7817af9d4ddbd6085252807cdda_r.jpg" class="lazyload" data-srcset="https://pic3.zhimg.com/v2-6849d7817af9d4ddbd6085252807cdda_r.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="preview"></p>
+<h2 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h2><h3 id="1-为什么要引入微任务，只有一种任务类型不行吗？"><a href="#1-为什么要引入微任务，只有一种任务类型不行吗？" class="headerlink" title="1.为什么要引入微任务，只有一种任务类型不行吗？"></a>1.为什么要引入微任务，只有一种任务类型不行吗？</h3><p>​        页面渲染事件，各种IO的完成事件等随时被添加到任务队列中，一直会保持先进先出的原则执行，我们不能准确低控制这些事被添加到任务队列中的位置。但是这个时候突然有高优先级的任务需要尽快执行，那么一种任务类型就不合适了，所以引入了微任务队列。</p>
+<p>不同的异步任务分为：<strong>宏任务</strong>和<strong>微任务</strong></p>
+<p><strong>宏任务：</strong></p>
+<ul>
+<li>script(整体代码)</li>
+<li>setTimeout()</li>
+<li>setInterval()</li>
+<li>postMessage</li>
+<li>I/O</li>
+<li>UI交互事件</li>
+</ul>
+<p><strong>微任务：</strong></p>
+<ul>
+<li>new Promise().then(回调)</li>
+<li>MutationObserver(html5 新特性)</li>
+</ul>
+<h3 id="2-运行机制"><a href="#2-运行机制" class="headerlink" title="2.运行机制"></a>2.运行机制</h3><pre><code>     异步任务的返回结果会被放到一个任务队列中，根据异步事件的类型，这个事件实际上会被放到对应的宏任务和微任务队列中去。
+</code></pre>
+<p>在当前执行栈为空时，主线程会查看微任务队列是否有事件存在</p>
+<ul>
+<li>存在，依次执行队列中的事件对应的回调，直到微任务队列为空，然后去宏任务队列中取出最前面的事件，把当前的回调加到当前执行栈。</li>
+<li>如果不存在，那么再去宏任务队列中取出一个事件并把对应的回到加入当前执行栈；</li>
+</ul>
+<p>当前执行栈执行完毕后时会立刻处理所有微任务队列中的事件，然后再去宏任务队列中取出一个事件。同一次事件循环中，<strong>微任务永远在宏任务之前执行</strong>。</p>
+<p>在事件循环中，每进行一次循环操作称为 tick，每一次 tick 的任务处理模型是比较复杂的，但关键步骤如下：</p>
+<ul>
+<li>执行一个宏任务（栈中没有就从事件队列中获取）</li>
+<li>执行过程中如果遇到微任务，就将它添加到微任务的任务队列中</li>
+<li>宏任务执行完毕后，立即执行当前微任务队列中的所有微任务（依次执行）</li>
+<li>当前宏任务执行完毕，开始检查渲染，然后GUI线程接管渲染</li>
+<li>渲染完毕后，JS线程继续接管，开始下一个宏任务（从事件队列中获取）</li>
+</ul>
+<p>简单总结一下执行的顺序：<br>执行宏任务，然后执行该宏任务产生的微任务，若微任务在执行过程中产生了新的微任务，则继续执行微任务，微任务执行完毕后，再回到宏任务中进行下一轮循环。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-2e7e254b01adef50552ee4f5bc7591b2_720w.jpg" class="lazyload" data-srcset="https://pic3.zhimg.com/80/v2-2e7e254b01adef50552ee4f5bc7591b2_720w.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;start&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;setTimeout&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;promise1&#x27;</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;promise2&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;end&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://pic4.zhimg.com/v2-0d7af3f483aa991d41dd1f3ba7bac36f_b.webp" class="lazyload" data-srcset="https://pic4.zhimg.com/v2-0d7af3f483aa991d41dd1f3ba7bac36f_b.webp" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                
+              
+            
+              
+                <p>本文永久链接是：<a href=https://mgy1021.github.io/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/>https://mgy1021.github.io/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-08T15:15:44+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年9月8日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/07/%E4%B8%80%E4%B8%AAnodeJs%E7%9A%84%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E5%B7%A5%E5%85%B7nodemon/">
-        一个nodeJs的自动重启工具nodemon
-      </a>
-    </h2>
-  
-  <div class='md'>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>浏览器</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JavaScript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JavaScript</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E4%BA%8B%E4%BB%B6%E8%BD%AE%E8%AF%A2/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>事件轮询</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        nodemon模块node自动重启工具,监听代码文件的变化，当代码改变之后，自动启动。
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://mgy1021.github.io/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/&title=线程机制与事件机制 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://mgy1021.github.io/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/&title=线程机制与事件机制 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://mgy1021.github.io/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/&title=线程机制与事件机制 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/09/07/%E4%B8%80%E4%B8%AAnodeJs%E7%9A%84%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E5%B7%A5%E5%85%B7nodemon/'>
+          <p class='title'>一个nodeJs的自动重启工具nodemon<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>nodemon模块node自动重启工具,监听代码文件的变化，当代码改变之后，自动启动。
 全局安装1cnpm install -g nodemon
 
 启动项目1nodemon xx.js
 
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/">NodeJs</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/09/07/%E4%B8%80%E4%B8%AAnodeJs%E7%9A%84%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E5%B7%A5%E5%85%B7nodemon/'>
-            阅读全文
-          </a>
-        </div>
+</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84Mysql%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/">
-        <img class='headimg' src='https://mgy1021.github.io/Images/mysql.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84Mysql%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/">
-        nodeJs中的Mysql模块的使用
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        在nodeJS中，使用mysql模块连接数据库,使用方式如下：
-12345678910111213141516171819202122const mysql = require(&quot;mysql&quot;)// 1.创建连接对象let conn = mysql.createConnection(&#123;    // 主机    host: &quot;8.133.167.153&...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/">NodeJs</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84Mysql%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/">
-        <img class='headimg' src='https://mgy1021.github.io/Images/express.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/">
-        一个基于nodeJs的express服务器框架
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        Express应用程序生成器Express是一个基于Node.js平台、快速、开放、极简的Web开发框架
-通过该应用的生成器工具express-generator可以快速创建一个应用的框架。类似前端的脚手架。
-安装1.全局安装1npm install -g express-generator
-
-使用1.创建项目1234567891011121314// 引入express模块const ex...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/">NodeJs</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/09/07/%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EnodeJs%E7%9A%84express%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84Buffer%E7%BC%93%E5%86%B2%E5%99%A8/">
-        nodeJ中的Buffer缓冲器
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        Buffer缓冲器Buffer类被引入作为Node.js API的一部分，使其可以在TCP流或文件系统操作等场景中处理二进制数据流。可以将Buffer理解为输送二进制数据流的缓存。
-Buffer类在全局作用域中，无需导入
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/">NodeJs</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84Buffer%E7%BC%93%E5%86%B2%E5%99%A8/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84s%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
-        nodeJ中的s文件系统
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        使用Node.js读取文件在Nodejs中读取文件最简单的方法是使用fs.readFile()方法，参数：文件路径，字符编码，回调函数。 
-12345678// 读取文件fs.readFile(&#x27;./1-url.js&#x27;, &#x27;utf8&#x27;, (err, data) =&gt; &#123;    if (err) &#123;        console...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/">NodeJs</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/09/07/nodeJ%E4%B8%AD%E7%9A%84s%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B/">
-        nodeJs中的进程
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        process(进程)process对象是一个全局变量，提供了有关当前Node.js进程的信息并对其进行控制。作为全局变量，它始终可供Node.js应用程序使用，无需使用require()导入。
- 12345678910process.env.NODE_ENV = &quot;development&quot;process.env.BaseURL = &quot;127.0.0.1:888...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/">NodeJs</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2021/09/07/nodeJs%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95Http%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-        <img class='headimg' src='https://mgy1021.github.io/Images/node.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/07/nodeJs%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95Http%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-        nodeJs搭建简单Http服务器
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        Http服务器这是一个简单的HTTP web服务器
-1.创建服务器对象​    浏览器每发一次请求，都会运行该函数。
-req是请求对象，通过它可以拿到请求的方式、路径、参数,res是响应对象。
-12345678910111213141516171819202122232425262728293031323334353637383940414243// 创建服务器对象let server = ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/">NodeJs</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/09/07/nodeJs%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95Http%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -876,276 +757,28 @@ req是请求对象，通过它可以拿到请求的方式、路径、参数,res�
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='https://mgy1021.github.io/Images/mysql.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Mogy的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088"
-            ><div class='name'>前端学习栈</div><div class='badge'>(11)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Ajax"
-            ><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088ES6"
-            ><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088NodeJs"
-            ><div class='name'>NodeJs</div><div class='badge'>(7)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Webpack"
-            ><div class='name'>Webpack</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088git"
-            ><div class='name'>git</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-text">进程与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B-process"><span class="toc-text">进程(process)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B-thread"><span class="toc-text">线程(thread)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="toc-text">相关知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8"><span class="toc-text">浏览器内核</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%EF%BC%9F"><span class="toc-text">什么是浏览器内核？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E4%BB%A3%E7%A0%81%E5%88%86%E7%B1%BB%E5%92%8C%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">JS代码分类和执行顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS%E4%BB%A3%E7%A0%81%E5%88%86%E7%B1%BB"><span class="toc-text">JS代码分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS%E5%BC%95%E6%93%8E%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-text">JS引擎执行代码的基本流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6"><span class="toc-text">浏览器的事件循环机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84%EF%BC%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E7%9A%84"><span class="toc-text">JS是单线程的，非阻塞的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-text">1.单线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%9D%9E%E9%98%BB%E5%A1%9E"><span class="toc-text">2.非阻塞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS%E5%BC%95%E6%93%8E"><span class="toc-text">JS引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%A0%88"><span class="toc-text">执行栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#event-loop-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-text">event loop(事件循环)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E4%B8%8E%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="toc-text">事件循环与任务队列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="toc-text">宏任务和微任务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%95%E5%85%A5%E5%BE%AE%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%8F%AA%E6%9C%89%E4%B8%80%E7%A7%8D%E4%BB%BB%E5%8A%A1%E7%B1%BB%E5%9E%8B%E4%B8%8D%E8%A1%8C%E5%90%97%EF%BC%9F"><span class="toc-text">1.为什么要引入微任务，只有一种任务类型不行吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-text">2.运行机制</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Ajax/" style="font-size: 14px; color: #cfc">Ajax</a> <a href="/tags/ES6/" style="font-size: 14px; color: #cfc">ES6</a> <a href="/tags/Git/" style="font-size: 14px; color: #cfc">Git</a> <a href="/tags/Http%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #cfc">Http服务器</a> <a href="/tags/JavaScript/" style="font-size: 14px; color: #cfc">JavaScript</a> <a href="/tags/Mysql/" style="font-size: 14px; color: #cfc">Mysql</a> <a href="/tags/NodeJs/" style="font-size: 24px; color: #cf9">NodeJs</a> <a href="/tags/Webpack/" style="font-size: 14px; color: #cfc">Webpack</a> <a href="/tags/nodemon/" style="font-size: 14px; color: #cfc">nodemon</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E8%BD%AE%E8%AF%A2/" style="font-size: 14px; color: #cfc">事件轮询</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 14px; color: #cfc">浏览器</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 14px; color: #cfc">进程</a>
-    </div>
-  </section>
-
-
-  
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>12 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Wed Sep 08 2021 16:47:39 GMT+0800 (China Standard Time)</div>
-            <div id="last-update-show">2021-09-08 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-09-08 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -1154,21 +787,21 @@ req是请求对象，通过它可以拿到请求的方式、路径、参数,res�
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="线程机制与事件机制";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
