@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：事件轮询 - Mogy的博客</title>
+  <title>防抖与节流 - Mogy的博客</title>
+  
+    <meta name="keywords" content="JavaScript,防抖与节流">
   
 
   
@@ -371,7 +371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -431,76 +431,229 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        防抖与节流
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
+          
+            
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/">
-        线程机制与事件机制
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年9月12日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        进程与线程进程(process)​        程序的一次执行，它占有了一片独有的内存空间。可以通过Window任务管理器查看进程。
-线程(thread)​        线程是进程内的一个概念，线程是进程内的一个独立执行单元，是程序执行的一个完整流程，是CPU的最小的调度单元。
-JS是一门单线程语言,但是使用H5中的Web Workers可以多线程运行。浏览器运行是多线程的
-单进程浏览器...
-      
-    
+      <div id="lc-pv" data-title="防抖与节流" data-path="/2021/09/12/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-08</time>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="防抖和节流的使用场景"><a href="#防抖和节流的使用场景" class="headerlink" title="防抖和节流的使用场景"></a>防抖和节流的使用场景</h2><p>防抖和节流是针对响应跟不上触发频率这类问题的两种解决方案。在给DOM绑定事件时，有些事件我们是无法控制触发频率的。如鼠标移动事件<code>onmousemove</code>，滚动滚动条事件<code>onscroll</code>,窗口大小改变事件<code>onresize</code>,瞬间的操作都会导致这些事件会被高频触发。如果回调函数较为复杂，就会导致响应跟不上触发，出现页面卡顿，假死现象。比如，在实时检查输入时，如果我们绑定<code>onkeyup</code>事件发请求去服务端检查，用户输入过程中，事件的触发频率也会很高，会导致大量的请求发出，响应速度会大大跟不上触发。</p>
+<p>针对此类快速连续触发和不可控的高频触发问题，<code>debounce</code> 和 <code>throttling</code> 给出了两种解决策略。</p>
+<h3 id="防抖-debounce"><a href="#防抖-debounce" class="headerlink" title="防抖(debounce)"></a>防抖(<code>debounce</code>)</h3><p>​        <code>debounce</code>的特点是当事件快速连续不断触发时，动作只会执行一次。 延迟<code>debounce</code>，是在周期结束时执行，前缘<code>debounce</code>，是在周期开始时执行。但当触发有间断，且间断大于我们设定的时间间隔时，动作就会有多次执行。</p>
+<h4 id="延迟debounce"><a href="#延迟debounce" class="headerlink" title="延迟debounce"></a>延迟<code>debounce</code></h4><p>防抖的策略是当事件被触发时，设定一个周期延迟执行动作，若期间又被触发，则重新设定周期，直到周期结束，执行动作，这是防抖的基本思想。</p>
+<p><img src="https://img-blog.csdn.net/20180705005109564?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1cGlhbjE5ODk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" class="lazyload" data-srcset="https://img-blog.csdn.net/20180705005109564?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1cGlhbjE5ODk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h4 id="前缘debounce"><a href="#前缘debounce" class="headerlink" title="前缘debounce"></a>前缘<code>debounce</code></h4><p>前缘<code>debounce</code>,即执行动作在前，然后设定周期，周期内有事件被触发，不执行动作，且周期重新设定。</p>
+<p><img src="https://img-blog.csdn.net/20180705005639201?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1cGlhbjE5ODk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" class="lazyload" data-srcset="https://img-blog.csdn.net/20180705005639201?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1cGlhbjE5ODk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h4 id="防抖的简单实现"><a href="#防抖的简单实现" class="headerlink" title="防抖的简单实现"></a>防抖的简单实现</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line"> * @Description: </span><br><span class="line"> * @Author: Mogy</span><br><span class="line"> * @<span class="built_in">Date</span>: <span class="number">2021</span>-<span class="number">09</span>-<span class="number">09</span> <span class="number">09</span>:<span class="number">38</span>:<span class="number">27</span></span><br><span class="line"> * @LastEditors: Mogy</span><br><span class="line"> * @LastEditTime: <span class="number">2021</span>-<span class="number">09</span>-<span class="number">09</span> <span class="number">11</span>:<span class="number">45</span>:<span class="number">38</span></span><br><span class="line">--&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;防抖&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 防抖：用户触发事件过于频繁，只要最后一次事件的操作</span><br><span class="line">        var input = document.querySelector(&#x27;input&#x27;)</span><br><span class="line">        // 简单实现</span><br><span class="line">        //  let time = null</span><br><span class="line">        //     input.onkeyup = function () &#123;</span><br><span class="line">        //         if (time != null) &#123;</span><br><span class="line">        //             clearTimeout(time)</span><br><span class="line">        //         &#125;</span><br><span class="line">        //         time = setTimeout(() =&gt; &#123;</span><br><span class="line">        //             console.log(this.value);</span><br><span class="line">        //         &#125;, 500)</span><br><span class="line">        //     &#125;</span><br><span class="line"></span><br><span class="line">        // 使用闭包封装</span><br><span class="line">        input.onkeyup = debounce(function () &#123;</span><br><span class="line">            console.log(this.value);</span><br><span class="line">        &#125;, 500)</span><br><span class="line">        function debounce(fn, delay) &#123;</span><br><span class="line">            let time = null</span><br><span class="line">            return function () &#123;</span><br><span class="line">                if (time !== null) &#123;</span><br><span class="line">                    clearTimeout(time);</span><br><span class="line">                &#125;</span><br><span class="line">                time = setTimeout(() =&gt; &#123;</span><br><span class="line">                    fn.call(this);</span><br><span class="line">                &#125;, delay);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="节流-throttling"><a href="#节流-throttling" class="headerlink" title="节流(throttling)"></a>节流(<code>throttling</code>)</h3><p>节流的策略是，固定周期内，只执行一次动作，若有新事件触发，不执行。周期结束后，又有事件触发，开始新的周期。 节流策略也分前缘和延迟两种。与<code>debounce</code>类似，延迟是指 周期结束后执行动作，前缘是指执行动作后再开始周期。</p>
+<h4 id="延迟throttling示意图："><a href="#延迟throttling示意图：" class="headerlink" title="延迟throttling示意图："></a>延迟throttling示意图：</h4><p><img src="https://img-blog.csdn.net/20180705012049136?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1cGlhbjE5ODk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" class="lazyload" data-srcset="https://img-blog.csdn.net/20180705012049136?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1cGlhbjE5ODk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h4 id="前缘throttling-示意图："><a href="#前缘throttling-示意图：" class="headerlink" title="前缘throttling 示意图："></a>前缘throttling 示意图：</h4><p><img src="https://img-blog.csdn.net/20180705012224728?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1cGlhbjE5ODk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" class="lazyload" data-srcset="https://img-blog.csdn.net/20180705012224728?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1cGlhbjE5ODk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h4 id="节流的简单实现"><a href="#节流的简单实现" class="headerlink" title="节流的简单实现"></a>节流的简单实现</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line"> * @Description: </span><br><span class="line"> * @Author: Mogy</span><br><span class="line"> * @<span class="built_in">Date</span>: <span class="number">2021</span>-<span class="number">09</span>-<span class="number">09</span> <span class="number">10</span>:<span class="number">20</span>:<span class="number">39</span></span><br><span class="line"> * @LastEditors: Mogy</span><br><span class="line"> * @LastEditTime: <span class="number">2021</span>-<span class="number">09</span>-<span class="number">09</span> <span class="number">10</span>:<span class="number">28</span>:<span class="number">54</span></span><br><span class="line">--&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;节流&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            height: 2000px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 节流:控制高频事件执行次数</span><br><span class="line">        window.onscroll = throttle(function () &#123;</span><br><span class="line">            console.log(&quot;hello word&quot;);</span><br><span class="line">        &#125;, 500)</span><br><span class="line"></span><br><span class="line">        function throttle(fn, delay) &#123;</span><br><span class="line">            let flag = true;</span><br><span class="line">            return function () &#123;</span><br><span class="line">                if (flag) &#123;</span><br><span class="line">                    setTimeout(() =&gt; &#123;</span><br><span class="line">                        fn.call(this)</span><br><span class="line">                        flag = true</span><br><span class="line">                    &#125;, delay)</span><br><span class="line">                &#125;</span><br><span class="line">                flag = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                
+              
+            
+              
+                <p>本文永久链接是：<a href=https://mgy1021.github.io/2021/09/12/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/>https://mgy1021.github.io/2021/09/12/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-12T18:47:17+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年9月12日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JavaScript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JavaScript</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>防抖与节流</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://mgy1021.github.io/2021/09/12/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/&title=防抖与节流 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://mgy1021.github.io/2021/09/12/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/&title=防抖与节流 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://mgy1021.github.io/2021/09/12/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/&title=防抖与节流 - Mogy的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2021/09/12/Web%20Workers/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Workers</p>
+          <p class='content'>Web Workers​        Web Workers是HTML5提供的一个JavaScript多线程解决方案。我们可以将一些大计算量的代码交由Web Worker运行而不冻结用户界面。...</p>
+        </a>
+      
+      
+        <a class='next' href='/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/'>
+          <p class='title'>线程机制与事件机制<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>进程与线程进程(process)​        程序的一次执行，它占有了一片独有的内存空间。可以通过Window任务管理器查看进程。
+线程(thread)​        线程是进程内的一个概...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -508,278 +661,28 @@ JS是一门单线程语言,但是使用H5中的Web Workers可以多线程运行�
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='https://mgy1021.github.io/Images/boy.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Mogy</h2>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Mogy的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/mgy1021"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088"
-            ><div class='name'>前端学习栈</div><div class='badge'>(11)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Ajax"
-            ><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088ES6"
-            ><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088NodeJs"
-            ><div class='name'>NodeJs</div><div class='badge'>(7)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Webpack"
-            ><div class='name'>Webpack</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088git"
-            ><div class='name'>git</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">防抖和节流的使用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%96-debounce"><span class="toc-text">防抖(debounce)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9Fdebounce"><span class="toc-text">延迟debounce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%BC%98debounce"><span class="toc-text">前缘debounce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B2%E6%8A%96%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">防抖的简单实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E6%B5%81-throttling"><span class="toc-text">节流(throttling)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9Fthrottling%E7%A4%BA%E6%84%8F%E5%9B%BE%EF%BC%9A"><span class="toc-text">延迟throttling示意图：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%BC%98throttling-%E7%A4%BA%E6%84%8F%E5%9B%BE%EF%BC%9A"><span class="toc-text">前缘throttling 示意图：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8A%82%E6%B5%81%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">节流的简单实现</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Ajax/" style="font-size: 14px; color: #cfc">Ajax</a> <a href="/tags/ES6/" style="font-size: 14px; color: #cfc">ES6</a> <a href="/tags/Git/" style="font-size: 14px; color: #cfc">Git</a> <a href="/tags/Http%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #cfc">Http服务器</a> <a href="/tags/JavaScript/" style="font-size: 19px; color: #ccffb3">JavaScript</a> <a href="/tags/Mysql/" style="font-size: 14px; color: #cfc">Mysql</a> <a href="/tags/NodeJs/" style="font-size: 24px; color: #cf9">NodeJs</a> <a href="/tags/Webpack/" style="font-size: 14px; color: #cfc">Webpack</a> <a href="/tags/nodemon/" style="font-size: 14px; color: #cfc">nodemon</a> <a href="/tags/workers/" style="font-size: 14px; color: #cfc">workers</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E8%BD%AE%E8%AF%A2/" style="font-size: 14px; color: #cfc">事件轮询</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #cfc">多线程</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 14px; color: #cfc">浏览器</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 14px; color: #cfc">进程</a> <a href="/tags/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" style="font-size: 14px; color: #cfc">防抖与节流</a>
-    </div>
-  </section>
-
-
-  
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>14 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sun Sep 12 2021 18:54:23 GMT+0800 (China Standard Time)</div>
-            <div id="last-update-show">2021-09-12 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-09-12 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -788,8 +691,8 @@ JS是一门单线程语言,但是使用H5中的Web Workers可以多线程运行�
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="防抖与节流";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

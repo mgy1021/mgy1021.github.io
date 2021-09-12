@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：事件轮询 - Mogy的博客</title>
+  <title>标签：workers - Mogy的博客</title>
   
 
   
@@ -455,18 +455,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/">
-        线程机制与事件机制
+      <a href="/2021/09/12/Web%20Workers/">
+        Workers
       </a>
     </h2>
   
   <div class='md'>
     
       
-        进程与线程进程(process)​        程序的一次执行，它占有了一片独有的内存空间。可以通过Window任务管理器查看进程。
-线程(thread)​        线程是进程内的一个概念，线程是进程内的一个独立执行单元，是程序执行的一个完整流程，是CPU的最小的调度单元。
-JS是一门单线程语言,但是使用H5中的Web Workers可以多线程运行。浏览器运行是多线程的
-单进程浏览器...
+        Web Workers​        Web Workers是HTML5提供的一个JavaScript多线程解决方案。我们可以将一些大计算量的代码交由Web Worker运行而不冻结用户界面。
+但是子线程完全受主线程控制，且不得操作DOM。所以这个新标准并没有改变JavaScript单线程的本质。
+使用：1.创建HTML文件Web Workers.html12345678910111213...
       
     
   </div>
@@ -474,12 +473,12 @@ JS是一门单线程语言,但是使用H5中的Web Workers可以多线程运行�
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2021-09-08</time>
+        <time>2021-09-12</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2021/09/08/%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/'>
+          <a class='readmore' href='/2021/09/12/Web%20Workers/'>
             阅读全文
           </a>
         </div>
