@@ -526,9 +526,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>V：视图(View)：模板</li>
 <li>VM：视图模型(ViewModel)：Vue实例对象</li>
 </ol>
-<p><img src="http://img.mogy.top/image-20211115095937662.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211115095937662.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211115095937662"></p>
+<p><img src="https://img.mogy.top/image-20211115095937662.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211115095937662.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211115095937662"></p>
 <p>在代码中MVVM分别对应的内容：</p>
-<p><img src="http://r1u6ul1ho.hn-bkt.clouddn.com/image-20211115100858739.png" class="lazyload" data-srcset="http://r1u6ul1ho.hn-bkt.clouddn.com/image-20211115100858739.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211115100858739"></p>
+<p><img src="https://img.mogy.top/image-20211115100858739.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211115100858739.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211115100858739"></p>
 <h3 id="什么是数据代理？"><a href="#什么是数据代理？" class="headerlink" title="什么是数据代理？"></a>什么是数据代理？</h3><p><strong>数据代理</strong>是通过一个对象代理对另一个对象中属性的操作（读/写）。数据代理的实现是基于<code>Object.defineProperty</code>方法的。示例：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;</span><br><span class="line">        <span class="attr">x</span>: <span class="number">100</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> obj2 = &#123;</span><br><span class="line">        <span class="attr">y</span>: <span class="number">200</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//在box2中定义一个x属性去代理obj中的x</span></span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj2, <span class="string">&quot;x&quot;</span>, &#123;</span><br><span class="line">        <span class="function"><span class="title">get</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> obj.x</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">set</span>(<span class="params">value</span>)</span> &#123;</span><br><span class="line">            obj.x = value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
@@ -737,10 +737,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>图例：</p>
 <ol>
 <li><p>以index作为key</p>
-<p><img src="http://img.mogy.top/image-20211116104418480.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211116104418480.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211116104418480"></p>
+<p><img src="https://img.mogy.top/image-20211116104418480.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211116104418480.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211116104418480"></p>
 </li>
 <li><p>以id作为key </p>
-<p><img src="http://img.mogy.top/image-20211116104604962.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211116104604962.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211116104604962"></p>
+<p><img src="https://img.mogy.top/image-20211116104604962.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211116104604962.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211116104604962"></p>
 </li>
 </ol>
 </li>
@@ -893,17 +893,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><h5 id="Scoped"><a href="#Scoped" class="headerlink" title="Scoped"></a>Scoped</h5><ul>
 <li>实现原理：给最外侧得div添加一个特殊得属性，这个属性是随机生成的。</li>
 </ul>
-<p><img src="http://img.mogy.top/image-20211119135237555.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211119135237555.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211119135237555"></p>
+<p><img src="https://img.mogy.top/image-20211119135237555.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211119135237555.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211119135237555"></p>
 <ul>
 <li><p>在使用CSS时，使用属性选择器选中指定的div设置样式。</p>
-<p><img src="http://img.mogy.top/image-20211119135257672.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211119135257672.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211119135257672"></p>
+<p><img src="https://img.mogy.top/image-20211119135257672.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211119135257672.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211119135257672"></p>
 </li>
 </ul>
 <h4 id="Vue封装的过渡与动画"><a href="#Vue封装的过渡与动画" class="headerlink" title="Vue封装的过渡与动画"></a>Vue封装的过渡与动画</h4><ol>
 <li>作用：在插入、更新或移除DOM元素时，在合适的时候给元素添加样式类名。</li>
 <li>图示</li>
 </ol>
-<p><img src="http://img.mogy.top/image-20211122165807244.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211122165807244.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211122165807244"></p>
+<p><img src="https://img.mogy.top/image-20211122165807244.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211122165807244.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211122165807244"></p>
 <p><strong>写法：</strong></p>
 <ol>
 <li><p>准备好样式</p>
@@ -930,7 +930,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h2><blockquote>
 <p>每个 Vue 实例在被创建时都要经过一系列的初始化过程——例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。同时在这个过程中也会运行一些叫做<strong>生命周期钩子</strong>的函数，这给了用户在不同阶段添加自己的代码的机会。</p>
 </blockquote>
-<p><img src="http://img.mogy.top/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" class="lazyload" data-srcset="http://img.mogy.top/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="生命周期"></p>
+<p><img src="https://img.mogy.top/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" class="lazyload" data-srcset="https://img.mogy.top/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="生命周期"></p>
 <p>常用的生命周期钩子：</p>
 <ol>
 <li>mounted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等(初始化操作)</li>
@@ -949,7 +949,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>缺乏正规的组织形式</li>
 <li>代码复用率不高</li>
 </ol>
-<p><img src="http://img.mogy.top/image-20211118105326641.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211118105326641.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118105326641"></p>
+<p><img src="https://img.mogy.top/image-20211118105326641.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211118105326641.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118105326641"></p>
 <p>组件化的优势：</p>
 <ol>
 <li>简化项目代码</li>
@@ -1026,7 +1026,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    让组件实例对象(VC)可以访问到Vue原型上的属性、方法</p>
 </li>
 </ol>
-<p><img src="http://img.mogy.top/image-20211118145808107.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211118145808107.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118145808107"></p>
+<p><img src="https://img.mogy.top/image-20211118145808107.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211118145808107.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118145808107"></p>
 <h3 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h3><h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><ol>
 <li><p>被用于给元素或子组件注册引用信息（id的替代者）</p>
 </li>
@@ -1125,14 +1125,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn serve 或者 npm run serve</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="脚手架结构分析"><a href="#脚手架结构分析" class="headerlink" title="脚手架结构分析"></a>脚手架结构分析</h3><p>脚手架的目录结构如下：</p>
-<p><img src="http://img.mogy.top/image-20211118163736571.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211118163736571.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118163736571"></p>
+<p><img src="https://img.mogy.top/image-20211118163736571.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211118163736571.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118163736571"></p>
 <ul>
 <li><p><code>node_modules</code></p>
 <p>项目的第三方包依赖文件</p>
 </li>
 <li><p><code>public</code></p>
 <p>存放着一个logo图片文件和以合HTML文件，Vue项目是一个单页面应用，只有<code>public</code>下的一个HTML文件</p>
-<p><img src="http://img.mogy.top/image-20211118170135947.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211118170135947.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118170135947"></p>
+<p><img src="https://img.mogy.top/image-20211118170135947.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211118170135947.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118170135947"></p>
 </li>
 <li><p><code>src</code></p>
 <p>存放项目的源代码(主要代码)文件</p>
@@ -1143,11 +1143,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p><code>App.vue</code></p>
 <p>App.vue文件是所有组件的管理者，它将会被放入<code>index.html</code>准备好的容器中</p>
-<p><img src="http://img.mogy.top/image-20211118164550755.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211118164550755.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118164550755"></p>
+<p><img src="https://img.mogy.top/image-20211118164550755.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211118164550755.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118164550755"></p>
 </li>
 <li><p><code>main.js</code></p>
 <p>main.js文件是项目的<strong>入口文件</strong>，当执行<code>yarn serve</code>命令运行项目时，首先会执行这个文件。</p>
-<p><img src="http://img.mogy.top/image-20211118164854361.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211118164854361.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118164854361"></p>
+<p><img src="https://img.mogy.top/image-20211118164854361.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211118164854361.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211118164854361"></p>
 </li>
 <li><p><code>gitignore</code></p>
 <p>git的配置文件，可以在里面配置哪些文件提交，哪些文件不提交</p>
@@ -1189,7 +1189,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 开启代理服务器(方式二)</span></span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">proxy</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;/api&#x27;</span>: &#123;  <span class="comment">//匹配所有以&#x27;/api&#x27;开头的请求路径</span></span><br><span class="line">                <span class="attr">target</span>: <span class="string">&#x27;http://localhost:5000&#x27;</span>,<span class="comment">// 代理目标的基础路径</span></span><br><span class="line">                <span class="attr">pathRewrite</span>: &#123; <span class="string">&#x27;^/api&#x27;</span>: <span class="string">&#x27;&#x27;</span> &#125;,</span><br><span class="line">                <span class="attr">ws</span>: <span class="literal">true</span>,<span class="comment">//用于支持websocket</span></span><br><span class="line">                <span class="attr">changeOrigin</span>: <span class="literal">true</span><span class="comment">//用于控制请求头中的host值</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">&#x27;/foo&#x27;</span>: &#123;</span><br><span class="line">                <span class="attr">target</span>: <span class="string">&#x27;http://localhost:5001&#x27;</span>,</span><br><span class="line">                <span class="attr">pathRewrite</span>: &#123; <span class="string">&quot;^/foo&quot;</span>: <span class="string">&#x27;&#x27;</span> &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>​        在Vuex中实现集中式状态(数据)管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式的管理(读/写)，也是一种组件间通信的方式，且适用于任意组件间通信。</p>
-<p><img src="http://img.mogy.top/image-20211124165433353.png" class="lazyload" data-srcset="http://img.mogy.top/image-20211124165433353.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211124165433353"></p>
+<p><img src="https://img.mogy.top/image-20211124165433353.png" class="lazyload" data-srcset="https://img.mogy.top/image-20211124165433353.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211124165433353"></p>
 <h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
 <li>多个组件需要共享数据时</li>
 <li>如果不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。确实是如此——如果应用够简单，最好不要使用 Vuex。</li>
@@ -1341,7 +1341,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-07T22:32:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-07T23:29:21+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年12月7日</p>
