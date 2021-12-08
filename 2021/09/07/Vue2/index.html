@@ -120,7 +120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -371,7 +371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post search' style="display: none;">
+        <div id="half" class='cover-wrapper post search' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -436,6 +436,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
+  
+    <div class='headimg-div'>
+      <a class='headimg-a'>
+        <img class='headimg' src='https://img.mogy.top/20211208134735.png'/>
+      </a>
+    </div>
   
   <div class="article-meta" id="top">
     
@@ -1341,10 +1347,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-07T23:29:21+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-08T13:48:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年12月7日</p>
+    <p>更新于：2021年12月8日</p>
   </a>
 </div>
 
@@ -1458,6 +1464,8 @@ Buffer...</p>
 <aside class='l_side'>
   
   
+
+  
     
     
 
@@ -1480,6 +1488,133 @@ Buffer...</p>
 
   
 
+  
+
+  
+    
+    
+
+<section class="widget shadow desktop">
+  
+  <header>
+    
+      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="webinfo">
+      
+        <div class="webinfo-item">
+          <div>文章数目：</div>
+          <div>31 篇</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>已运行时间：</div>
+          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
+        </div>
+        <script>
+          var BirthDay = new Date(new Date('2020/01/01'));
+          var today = new Date();
+          var timeold = (today.getTime() - BirthDay.getTime());
+          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
+          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
+        </script>
+      
+
+
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站访客数：</div>
+          
+          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站总访问量：</div>
+          
+          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>最后活动时间：</div>
+          
+            <div id="last-update" style="display: none;">Wed Dec 08 2021 13:50:09 GMT+0800 (China Standard Time)</div>
+            <div id="last-update-show">2021-12-08 日</div>
+          
+        </div>
+        
+        <script>
+          function timeago(dateTimeStamp) {
+              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
+              var hour = minute * 60;
+              var day = hour * 24;
+              var week = day * 7;
+              var month = day * 30;
+              var now = new Date().getTime(); //获取当前时间毫秒
+              var diffValue = now - dateTimeStamp; //时间差
+              if (diffValue < 0) {
+                  return;
+              }
+              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
+              var hourC = diffValue / hour;
+              var dayC = diffValue / day;
+              var weekC = diffValue / week;
+              var monthC = diffValue / month;
+              if (monthC >= 1 && monthC <= 3) {
+                  result = " " + parseInt(monthC) + " 月前"
+              } else if (weekC >= 1 && weekC <= 3) {
+                  result = " " + parseInt(weekC) + " 周前"
+              } else if (dayC >= 1 && dayC <= 6) {
+                  result = " " + parseInt(dayC) + " 天前"
+              } else if (hourC >= 1 && hourC <= 23) {
+                  result = " " + parseInt(hourC) + " 小时前"
+              } else if (minC >= 1 && minC <= 59) {
+                  result = " " + parseInt(minC) + " 分钟前"
+              } else if (diffValue >= 0 && diffValue <= minute) {
+                  result = "刚刚"
+              } else {
+                  var datetime = new Date();
+                  datetime.setTime(dateTimeStamp);
+                  var Nyear = datetime.getFullYear();
+                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+                  result = Nyear + "-" + Nmonth + "-" + Ndate
+              }
+              return result;
+          }
+          var lastUpDate = document.getElementById('last-update').innerHTML;
+          try {
+            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
+          } catch (error) {
+            document.getElementById('last-update-show').innerHTML = '2021-12-08 日';
+          }
+        </script>
+        
+      
+    </div>
+  </div>
+</section>
+
+  
+
+  
+
 
 </aside>
 
@@ -1498,14 +1633,14 @@ Buffer...</p>
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="none";
-    cover_wrapper.style.display="none";
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
     
   
 </script>
