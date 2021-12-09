@@ -634,8 +634,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='md'>
     
       
-        在nodeJS中，使用mysql模块连接数据库,使用方式如下：
-12345678910111213141516171819202122const mysql = require(&quot;mysql&quot;)// 1.创建连接对象let conn = mysql.createConnection(&#123;    // 主机    host: &quot;8.133.167.153&...
+        在nodeJS中的Mysql模块安装mysql1npm install --save mysql
+
+使用mysql在nodeJS中，使用mysql模块连接数据库,使用方式如下：
+12345678910111213141516171819202122const mysql = require(&quot;mysql&quot;)// 1.创建连接对象let conn = mysql.creat...
       
     
   </div>
@@ -1193,8 +1195,8 @@ req是请求对象，通过它可以拿到请求的方式、路径、参数,res�
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Dec 08 2021 13:50:09 GMT+0800 (China Standard Time)</div>
-            <div id="last-update-show">2021-12-08 日</div>
+            <div id="last-update" style="display: none;">Thu Dec 09 2021 22:38:44 GMT+0800 (China Standard Time)</div>
+            <div id="last-update-show">2021-12-09 日</div>
           
         </div>
         
@@ -1244,7 +1246,7 @@ req是请求对象，通过它可以拿到请求的方式、路径、参数,res�
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-12-08 日';
+            document.getElementById('last-update-show').innerHTML = '2021-12-09 日';
           }
         </script>
         
