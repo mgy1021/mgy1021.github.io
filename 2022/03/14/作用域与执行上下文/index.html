@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：Mysql - Mogy的博客</title>
+  <title>作用域与执行上下文 - Mogy的博客</title>
+  
+    <meta name="keywords" content="JavaScript">
   
 
   
@@ -371,7 +371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper port search' style="display: none;">
           
             <div id='cover-backstretch'></div>
           
@@ -431,85 +431,191 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-port" id="port" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        作用域与执行上下文
+      </h1>
+      <div class='new-meta-box'>
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-    <div class='headimg-div'>
-      <a class='headimg-a' href="/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84Mysql%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/">
-        <img class='headimg' src='https://mgy1021.github.io/Images/mysql.jpg'/>
-      </a>
-    </div>
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84Mysql%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/">
-        nodeJs中的Mysql模块的使用
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        在nodeJS中的Mysql模块安装mysql1npm install --save mysql
-
-使用mysql在nodeJS中，使用mysql模块连接数据库,使用方式如下：
-12345678910111213141516171819202122const mysql = require(&quot;mysql&quot;)// 1.创建连接对象let conn = mysql.creat...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-09-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/">NodeJs</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/09/07/nodeJs%E4%B8%AD%E7%9A%84Mysql%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
 </div>
 
-          </div>
+          
         
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/">前端学习栈</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/JavaScript/">JavaScript</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年3月14日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-    
-  </section>
-  
-    
-  
+      <div id="lc-pv" data-title="作用域与执行上下文" data-path="/2022/03/14/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
 
 
+          
+        
+      </div>
     
+  </div>
+
+
   
+  
+  <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>在ES6之前，作用域只有两种，那就是<strong>全局作用域</strong>和<strong>函数作用域</strong>，在ES6中又新增了<strong>块级作用域</strong></p>
+<ol>
+<li>全局作用域和函数作用域<ol>
+<li>全局作用域<ul>
+<li>最外层函数和最外层函数外面定义的变量拥有全局作用域</li>
+<li>所有未定义直接赋值的变量自动声明为全局作用域</li>
+<li>所有window对象的属性拥有全局作用域</li>
+<li>全局作用域有很大的弊端，过多的全局作用域变量会污染全局命名空间，容易引起命名冲突。</li>
+</ul>
+</li>
+<li>函数作用域<ul>
+<li>函数作用域声明在函数内部的变零，一般只有固定的代码片段可以访问到</li>
+<li>作用域是分层的，内层作用域可以访问外层作用域，反之不行</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>块级作用域<ul>
+<li>使用ES6中新增的let和const指令可以声明块级作用域，块级作用域可以在函数中创建也可以在一个代码块中的创建（由<code>&#123; &#125;</code>包裹的代码片段）</li>
+<li>let和const声明的变量不会有变量提升，也不可以重复声明</li>
+<li>在循环中比较适合绑定块级作用域，这样就可以把声明的计数器变量限制在循环内部。</li>
+</ul>
+</li>
+</ol>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><h3 id="一、作用域链的概念"><a href="#一、作用域链的概念" class="headerlink" title="一、作用域链的概念"></a>一、作用域链的概念</h3><p>函数作用域内使用的变量，如果是在本作用域找不到定义，会往上一级查找，一层一层查找，直到找到全局作用域，如果都没有找到，就会返回undefined。这种一层一层类似锁链的关系，叫作用域链。</p>
+<h3 id="二、作用域链的作用"><a href="#二、作用域链的作用" class="headerlink" title="二、作用域链的作用"></a>二、作用域链的作用</h3><p>作用域链的作用是保证执行环境里<strong>有权</strong>访问的变量和函数是<strong>有序</strong>的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。</p>
+<p><strong>注意：</strong>JS没有块级作用域，若要形成块级作用域，可通过(function(){})();立即执行的形式实现。</p>
+<h2 id="对执行上下文的理解"><a href="#对执行上下文的理解" class="headerlink" title="对执行上下文的理解"></a>对执行上下文的理解</h2><p>JS代码在执行前，JS引擎总要做一番准备工作，这份工作其实就是创建对应的执行上下文。执行上下文：指当前执行环境中的变量、函数声明，参数（arguments），作用域链，this等信息</p>
+<h3 id="一、执行上下文的类型"><a href="#一、执行上下文的类型" class="headerlink" title="一、执行上下文的类型"></a>一、执行上下文的类型</h3><ol>
+<li>全局执行上下文<ul>
+<li>任何不在函数内部的都是全局执行上下文，它首先会创建一个全局的window对象，并且设置this的值等于这个全局对象，一个程序中只有一个全局执行上下文。</li>
+</ul>
+</li>
+<li>函数执行上下文<ul>
+<li>当一个函数被调用时，就会为该函数创建一个新的执行上下文，函数的上下文可以有任何多个。</li>
+</ul>
+</li>
+<li><code>eval</code>函数执行上下文<ul>
+<li>执行在eval函数中的代码会有属于它自己的执行上下文，不过eval函数不经常使用，不做介绍</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、执行上下文栈"><a href="#二、执行上下文栈" class="headerlink" title="二、执行上下文栈"></a>二、执行上下文栈</h3><ul>
+<li>JavaScript引擎使用执行上下文栈来管理执行上下文</li>
+<li>当JavaScript执行代码时，首先遇到全局代码，会创建一个全局执行上下文并且压入执行栈中，每当遇到一个函数调用，就会为该函数创建一个新的执行上下文并压入执行栈顶，引擎会执行位于执行上下文栈顶的函数，当函数执行完成之后，执行上下文从栈中弹出，继续执行下一个上下文。当所有的代码都执行完毕之后，从栈中弹出全局执行上下文。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;Hello World!&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Inside first function&#x27;</span>);</span><br><span class="line">  second();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Again inside first function&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Inside second function&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">first();</span><br><span class="line"><span class="comment">//执行顺序</span></span><br><span class="line"><span class="comment">//先执行second(),在执行first()</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="三、创建执行上下文"><a href="#三、创建执行上下文" class="headerlink" title="三、创建执行上下文"></a>三、创建执行上下文</h3><p>创建执行上下文有两个阶段：<strong>创建阶段</strong>和<strong>执行阶段</strong></p>
+<h4 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h4><ol>
+<li>this绑定<ul>
+<li>在全局执行上下文中，this指向全局对象（window对象）</li>
+<li>在函数执行上下文中，this指向取决于函数如何调用。如果它被一个引用对象调用，那么this会被设置成那个对象，否则this的值被设置为全局对象或者undefined</li>
+</ul>
+</li>
+<li>创建语法环境组件<ul>
+<li>词法环境是一种有<strong>标识符——变量映射</strong>的数据结构，标识符是指变量/函数名，变量是对实际对象或原始数据的引用。</li>
+<li>词法环境的内部有两个组件：<strong>加粗样式</strong>：环境记录器:用来储存变量个函数声明的实际位置<strong>外部环境的引用</strong>：可以访问父级作用域</li>
+</ul>
+</li>
+<li>创建变量环境组件<ul>
+<li>变量环境也是一个词法环境，其环境记录器持有变量声明语句在执行上下文中创建的绑定关系。</li>
+</ul>
+</li>
+</ol>
+<h4 id="执行阶段"><a href="#执行阶段" class="headerlink" title="执行阶段"></a>执行阶段</h4><p>此阶段会完成对变量的分配，最后执行完代码。</p>
+<p><strong>简单来说执行上下文就是指：</strong></p>
+<p>在执行一点JS代码之前，需要先解析代码。解析的时候会先创建一个全局执行上下文环境，先把代码中即将执行的变量、函数声明都拿出来，变量先赋值为undefined，函数先声明好可使用。这一步执行完了，才开始正式的执行程序。</p>
+<p>在一个函数执行之前，也会创建一个函数执行上下文环境，跟全局执行上下文类似，不过函数执行上下文会多出this、arguments和函数的参数。</p>
+<ul>
+<li>全局上下文：变量定义，函数声明</li>
+<li>函数上下文：变量定义，函数声明，<code>this</code>，<code>arguments</code></li>
+</ul>
+<h2 id="JS中的提前声明"><a href="#JS中的提前声明" class="headerlink" title="JS中的提前声明"></a>JS中的提前声明</h2><p>JS中的函数作用域是指在函数内声明的所有变量在函数体内始终是可见的。并且，变量在声明之前就可以使用了，这种情况就叫声明提前。</p>
+<p><strong>注意：</strong>声明提前是在JS引擎预编译时进行的，在代码被执行之前已经有声明提前的现象产生。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;提前声明&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 提前声明</span></span><br></pre></td></tr></table></figure>
+
+
+  
+  
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/03/14/%E5%AD%A6%E4%B9%A0%E9%97%AD%E5%8C%85/'>
+          <p class='title'>学习闭包<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>学习JavaScript闭包(Closure)一、变量的作用域要理解闭包，首先必须理解JavaScript特殊的变量作用域，变量作用域无非就是两种，全局变量和局部变量。
+JavaScript语言...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -517,338 +623,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='https://mgy1021.github.io/Images/boy.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Mogy</h2>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Mogy的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/mgy1021"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088"
-            ><div class='name'>前端学习栈</div><div class='badge'>(33)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Ajax/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Ajax"
-            ><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/CSS/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/CSS/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088CSS"
-            ><div class='name'>CSS</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ECharts/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ECharts/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088ECharts"
-            ><div class='name'>ECharts</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/ES6/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088ES6"
-            ><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/HTML5/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/HTML5/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088HTML5"
-            ><div class='name'>HTML5</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/JavaScript/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/JavaScript/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088JavaScript"
-            ><div class='name'>JavaScript</div><div class='badge'>(9)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/NodeJs/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088NodeJs"
-            ><div class='name'>NodeJs</div><div class='badge'>(9)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Vue/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Vue/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Vue"
-            ><div class='name'>Vue</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Vue/%E4%B8%83%E7%89%9B%E4%BA%91/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Vue/%E4%B8%83%E7%89%9B%E4%BA%91/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088VueE4B883E7899BE4BA91"
-            ><div class='name'>七牛云</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/WebSocket/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/WebSocket/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088WebSocket"
-            ><div class='name'>WebSocket</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/Webpack/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088Webpack"
-            ><div class='name'>Webpack</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/git/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088git"
-            ><div class='name'>git</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088E5B8B8E794A8E5BFABE68DB7E994AE"
-            ><div class='name'>常用快捷键</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088E5BC80E58F91E68A80E5B7A7"
-            ><div class='name'>开发技巧</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/%E6%B5%8F%E8%A7%88%E5%99%A8/" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%A0%88/%E6%B5%8F%E8%A7%88%E5%99%A8/"
-            id="categoriesE5898DE7ABAFE5ADA6E4B9A0E6A088E6B58FE8A788E599A8"
-            ><div class='name'>浏览器</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/"
-            id="categoriesE69C8DE58AA1E599A8E79BB8E585B3"
-            ><div class='name'>服务器相关</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"
-            id="categoriesE69C8DE58AA1E599A8E79BB8E585B3E58685E7BD91E7A9BFE9808F"
-            ><div class='name'>内网穿透</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-text">作用域链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">一、作用域链的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">二、作用域链的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对执行上下文的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">一、执行上下文的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">二、执行上下文栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%9B%E5%BB%BA%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-text">三、创建执行上下文</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%98%B6%E6%AE%B5"><span class="toc-text">创建阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E9%98%B6%E6%AE%B5"><span class="toc-text">执行阶段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E4%B8%AD%E7%9A%84%E6%8F%90%E5%89%8D%E5%A3%B0%E6%98%8E"><span class="toc-text">JS中的提前声明</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Ajax/" style="font-size: 14px; color: #cfc">Ajax</a> <a href="/tags/CSS/" style="font-size: 17.33px; color: #cfb">CSS</a> <a href="/tags/ECharts/" style="font-size: 14px; color: #cfc">ECharts</a> <a href="/tags/ES6/" style="font-size: 14px; color: #cfc">ES6</a> <a href="/tags/Git/" style="font-size: 14px; color: #cfc">Git</a> <a href="/tags/HTML5/" style="font-size: 14px; color: #cfc">HTML5</a> <a href="/tags/Http%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 14px; color: #cfc">Http服务器</a> <a href="/tags/JavaScript/" style="font-size: 20.67px; color: #cfa">JavaScript</a> <a href="/tags/Mysql/" style="font-size: 14px; color: #cfc">Mysql</a> <a href="/tags/NodeJs/" style="font-size: 24px; color: #cf9">NodeJs</a> <a href="/tags/Promise/" style="font-size: 14px; color: #cfc">Promise</a> <a href="/tags/SVG/" style="font-size: 14px; color: #cfc">SVG</a> <a href="/tags/Vue/" style="font-size: 14px; color: #cfc">Vue</a> <a href="/tags/Vue2-0/" style="font-size: 14px; color: #cfc">Vue2.0</a> <a href="/tags/WebSocket/" style="font-size: 14px; color: #cfc">WebSocket</a> <a href="/tags/Webpack/" style="font-size: 14px; color: #cfc">Webpack</a> <a href="/tags/apidoc/" style="font-size: 14px; color: #cfc">apidoc</a> <a href="/tags/exe/" style="font-size: 14px; color: #cfc">exe</a> <a href="/tags/nodemon/" style="font-size: 14px; color: #cfc">nodemon</a> <a href="/tags/pkg/" style="font-size: 14px; color: #cfc">pkg</a> <a href="/tags/workers/" style="font-size: 14px; color: #cfc">workers</a> <a href="/tags/%E4%B8%83%E7%89%9B%E4%BA%91/" style="font-size: 14px; color: #cfc">七牛云</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E8%BD%AE%E8%AF%A2/" style="font-size: 14px; color: #cfc">事件轮询</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #cfc">内网穿透</a> <a href="/tags/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" style="font-size: 14px; color: #cfc">图片上传</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #cfc">多线程</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 14px; color: #cfc">快捷键</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 14px; color: #cfc">浏览器</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8/" style="font-size: 14px; color: #cfc">浏览器内核</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #cfc">浏览器渲染原理</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 14px; color: #cfc">进程</a> <a href="/tags/%E9%87%8D%E7%BB%98%E5%9B%9E%E6%B5%81/" style="font-size: 14px; color: #cfc">重绘回流</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 14px; color: #cfc">闭包</a> <a href="/tags/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" style="font-size: 14px; color: #cfc">防抖与节流</a>
-    </div>
-  </section>
-
-
-  
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>35 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Mon Mar 14 2022 10:23:15 GMT+0800 (China Standard Time)</div>
-            <div id="last-update-show">2022-03-14 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-03-14 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
